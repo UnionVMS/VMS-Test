@@ -49,5 +49,6 @@ abstract class TestBase {
 
     protected void tearDownAfterTestClass() {
         // close connections, close browser as needed
+        driver.close();
     }
 }
