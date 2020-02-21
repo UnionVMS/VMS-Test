@@ -1,12 +1,4 @@
-import java.util.concurrent.TimeUnit;
-
-import PageObjects.LoginPage;
 import Tests.ClickOnMenuItemRealtimeTest;
-import Tests.GoogleTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertTrue;
 
@@ -88,7 +80,7 @@ public class Hello {
         GoogleTest gt = new GoogleTest();
         gt.enterGoogleSearchAndViewResults(driver);
 
-        LoginPage lp = new LoginPage(driver);
+        OldLoginPage lp = new OldLoginPage(driver);
         driver.get(loginURL);
         lp.typeUsername("vms_admin_se");
         lp.typePassword("password");

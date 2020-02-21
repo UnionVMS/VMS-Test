@@ -1,9 +1,8 @@
 package Tests;
 
-import PageObjects.LoginPage;
+import PageObjects.OldLoginPage;
 import PageObjects.PageBase;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -36,7 +35,7 @@ abstract class TestBase {
         // initialize testPage
         // login to the app, if necessary
 
-        LoginPage lp = new LoginPage(driver);
+        OldLoginPage lp = new OldLoginPage(driver);
         driver.get(loginURL);
         lp.typeUsername(username);
         lp.typePassword(password);

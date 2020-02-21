@@ -3,9 +3,9 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends PageBase {
+public class OldLoginPage extends PageBase {
 
-    public LoginPage(WebDriver driver) {
+    public OldLoginPage(WebDriver driver) {
         super(driver);
         // Check that we're on the right page.
 /*        if (!"".equals(driver.getTitle())) {
@@ -25,7 +25,7 @@ public class LoginPage extends PageBase {
     }
 
     // The login page allows the user to type their username into the username field
-    public LoginPage typeUsername(String username) {
+    public OldLoginPage typeUsername(String username) {
         // This is the only place that "knows" how to enter a username
         driver.findElement(usernameLocator).sendKeys(username);
 
@@ -34,7 +34,7 @@ public class LoginPage extends PageBase {
     }
 
     // The login page allows the user to type their password into the password field
-    public LoginPage typePassword(String password) {
+    public OldLoginPage typePassword(String password) {
         // This is the only place that "knows" how to enter a password
         driver.findElement(passwordLocator).sendKeys(password);
 
@@ -55,13 +55,13 @@ public class LoginPage extends PageBase {
     }
 
     // The login page allows the user to submit the login form knowing that an invalid username and / or password were entered
-    public LoginPage submitLoginExpectingFailure() {
+    public OldLoginPage submitLoginExpectingFailure() {
         // This is the only place that submits the login form and expects the destination to be the login page due to login failure.
         driver.findElement(loginButtonLocator).submit();
 
         // Return a new page object representing the destination. Should the user ever be navigated to the home page after submiting a login with credentials
-        // expected to fail login, the script will fail when it attempts to instantiate the LoginPage PageObject.
-        return new LoginPage(driver);
+        // expected to fail login, the script will fail when it attempts to instantiate the OldLoginPage PageObject.
+        return new OldLoginPage(driver);
     }
 
     // Conceptually, the login page offers the user the service of being able to "log into"

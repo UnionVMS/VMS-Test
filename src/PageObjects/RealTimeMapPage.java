@@ -60,7 +60,7 @@ public class RealTimeMapPage extends PageBase {
         driver.findElement(loginButtonLocator).submit();
 
         // Return a new page object representing the destination. Should the user ever be navigated to the home page after submiting a login with credentials
-        // expected to fail login, the script will fail when it attempts to instantiate the LoginPage PageObject.
+        // expected to fail login, the script will fail when it attempts to instantiate the OldLoginPage PageObject.
         return new RealTimeMapPage(driver);
     }
 
