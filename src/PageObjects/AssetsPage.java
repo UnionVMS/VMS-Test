@@ -3,9 +3,9 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RealTimeMapPage extends PageBase {
+public class AssetsPage extends PageBase {
 
-    public RealTimeMapPage(WebDriver driver) {
+    public AssetsPage(WebDriver driver) {
         super(driver);
 
         // Check that we're on the right page.

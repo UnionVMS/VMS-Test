@@ -1,24 +1,31 @@
 package Tests;
 
+import PageObjects.AssetsPage;
 import PageObjects.OldAssetPage;
 import PageObjects.RealTimeMapPage;
 import org.junit.Test;
 
-public class ClickOnMenuItemRealtimeTest extends AssetTest {
+public class ClickOnMenuItemAssetsTest extends AssetTest {
 
-    public ClickOnMenuItemRealtimeTest() {
+    public ClickOnMenuItemAssetsTest() {
+
         super.setUpBeforeTestClass();
+
     }
 
     @Test
-    public RealTimeMapPage ClickOnMenuItemRealtime (){
+    public AssetsPage ClickOnMenuItemAssets (){
         // test is ready to go!
         super.setUpBeforeTestMethod();
         OldAssetPage oldAssetPage = (OldAssetPage) testPage;
         testPage = oldAssetPage.clickMenuItemRealtime();
-        //assert testPage.GetTitle().equals("Realmap page");
+
+        RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
+        testPage = realTimeMapPage.clickMenuItemAssets();
+
+        //assert testPage.GetTitle().equals("Assets page");
         System.out.println(testPage.GetTitle());
 
-        return (RealTimeMapPage) testPage;
+        return (AssetsPage) testPage;
     }
 }

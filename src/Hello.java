@@ -1,3 +1,5 @@
+import PageObjects.RealTimeMapPage;
+import Tests.ClickOnMenuItemAssetsTest;
 import Tests.ClickOnMenuItemRealtimeTest;
 
 import static org.junit.Assert.assertTrue;
@@ -29,8 +31,11 @@ public class Hello {
         System.out.println(lp.GetTitle());
         assertTrue("".equals(driver.getTitle()));
 */
-        ClickOnMenuItemRealtimeTest myTest = new ClickOnMenuItemRealtimeTest();
-        myTest.ClickOnMenuItemRealtime();
-    }
+//        ClickOnMenuItemRealtimeTest myTest = new ClickOnMenuItemRealtimeTest();
+//        myTest.ClickOnMenuItemRealtime();
 
+        ClickOnMenuItemAssetsTest myTest2 = new ClickOnMenuItemAssetsTest();
+        myTest2.ClickOnMenuItemAssets();
+
+    }
 }
