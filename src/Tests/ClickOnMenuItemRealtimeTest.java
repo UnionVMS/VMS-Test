@@ -7,13 +7,13 @@ import org.junit.Test;
 public class ClickOnMenuItemRealtimeTest extends AssetTest {
 
     public ClickOnMenuItemRealtimeTest() {
-        super.setUpBeforeTestClass();
+//        super.setUpBeforeTestClass();
     }
 
     @Test
     public RealTimeMapPage ClickOnMenuItemRealtime (){
         // test is ready to go!
-        super.setUpBeforeTestMethod();
+//        super.setUpBeforeTestMethod();
         OldAssetPage oldAssetPage = (OldAssetPage) testPage;
         testPage = oldAssetPage.clickMenuItemRealtime();
         //assert testPage.GetTitle().equals("Realmap page");

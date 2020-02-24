@@ -1,6 +1,9 @@
 import PageObjects.RealTimeMapPage;
 import Tests.ClickOnMenuItemAssetsTest;
 import Tests.ClickOnMenuItemRealtimeTest;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 
 import static org.junit.Assert.assertTrue;
 
@@ -34,8 +37,16 @@ public class Hello {
 //        ClickOnMenuItemRealtimeTest myTest = new ClickOnMenuItemRealtimeTest();
 //        myTest.ClickOnMenuItemRealtime();
 
-        ClickOnMenuItemAssetsTest myTest2 = new ClickOnMenuItemAssetsTest();
-        myTest2.ClickOnMenuItemAssets();
+//        ClickOnMenuItemAssetsTest myTest2 = new ClickOnMenuItemAssetsTest();
+//        myTest2.ClickOnMenuItemAssets();
+
+        Result result = JUnitCore.runClasses(ClickOnMenuItemAssetsTest.class);
+
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+
+        System.out.println(result.wasSuccessful());
 
     }
 }

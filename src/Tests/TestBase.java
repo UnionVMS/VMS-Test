@@ -2,12 +2,14 @@ package Tests;
 
 import PageObjects.OldLoginPage;
 import PageObjects.PageBase;
+import org.junit.*;
+import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-abstract class TestBase {
+public abstract class TestBase {
 
     public static WebDriver driver;
 
@@ -17,21 +19,40 @@ abstract class TestBase {
 
     protected static PageBase testPage;
 
-    protected void setUpBeforeTestClass(){
-        //setting the driver executable
-        System.setProperty("webdriver.chrome.driver","C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2019.3.3\\lib\\selenium\\chromedriver.exe");
+    @ClassRule
+    public static final TestResources res = new TestResources();
 
-        //Initiating your chromedriver
-        driver = new ChromeDriver();
 
-        //Applied wait time
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    public static class TestResources extends ExternalResource {
+        protected void before() {
+            // Setup logic that used to be in @BeforeClass
+            //setting the driver executable
+            System.setProperty("webdriver.chrome.driver","C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2019.3.3\\lib\\selenium\\chromedriver.exe");
 
-        //maximize window
-        driver.manage().window().maximize();
+            //Initiating your chromedriver
+            driver = new ChromeDriver();
+
+            //Applied wait time
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+            //maximize window
+            driver.manage().window().maximize();
+        }
+        protected void after() {
+            // Setup logic that used to be in @AfterClass
+            // close connections, close browser as needed
+            driver.close();
+        }
     }
 
-    protected void setUpBeforeTestMethod() {
+
+
+    @BeforeClass
+    public static void setUpBeforeTestClass(){
+    }
+
+    @Before
+    public void setUpBeforeTestMethod() {
         // initialize testPage
         // login to the app, if necessary
 
@@ -43,12 +64,12 @@ abstract class TestBase {
 
     }
 
-    protected void tearDownAfterTestMethod() {
+    @After
+    public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
     }
 
-    protected void tearDownAfterTestClass() {
-        // close connections, close browser as needed
-        driver.close();
+    @AfterClass
+    public static void tearDownAfterTestClass() {
     }
 }

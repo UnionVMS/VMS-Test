@@ -1,31 +1,37 @@
 package Tests;
 
-import PageObjects.AssetsPage;
-import PageObjects.OldAssetPage;
-import PageObjects.RealTimeMapPage;
-import org.junit.Test;
+        import PageObjects.AssetsPage;
+        import PageObjects.OldAssetPage;
+        import PageObjects.RealTimeMapPage;
+        import org.junit.Test;
+
+        import static org.junit.Assert.assertEquals;
 
 public class ClickOnMenuItemAssetsTest extends AssetTest {
 
     public ClickOnMenuItemAssetsTest() {
 
-        super.setUpBeforeTestClass();
+       // super.setUpBeforeTestClass();
 
     }
 
     @Test
-    public AssetsPage ClickOnMenuItemAssets (){
+    public void ClickOnMenuItemAssets (){
         // test is ready to go!
-        super.setUpBeforeTestMethod();
+//        super.setUpBeforeTestMethod();
         OldAssetPage oldAssetPage = (OldAssetPage) testPage;
+
         testPage = oldAssetPage.clickMenuItemRealtime();
 
         RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
         testPage = realTimeMapPage.clickMenuItemAssets();
 
-        //assert testPage.GetTitle().equals("Assets page");
+//        ((OldAssetPage)testPage).clickMenuItemRealtime();
+//        ((RealTimeMapPage)testPage).clickMenuItemAssets();
+
+        assertEquals("Assets page", testPage.GetTitle());
         System.out.println(testPage.GetTitle());
 
-        return (AssetsPage) testPage;
+        return;
     }
 }
