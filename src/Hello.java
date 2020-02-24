@@ -41,12 +41,10 @@ public class Hello {
 //        myTest2.ClickOnMenuItemAssets();
 
         Result result = JUnitCore.runClasses(ClickOnMenuItemAssetsTest.class);
-
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
         }
-
-        System.out.println(result.wasSuccessful());
+        System.out.println("Result=="+result.wasSuccessful());
 
     }
 }

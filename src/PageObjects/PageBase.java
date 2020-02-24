@@ -13,4 +13,7 @@ public abstract class PageBase {
         return driver.getTitle();
     }
 
+    public String GetURL() {
+        return  driver.getCurrentUrl();
+    }
 }

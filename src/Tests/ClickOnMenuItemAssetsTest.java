@@ -3,8 +3,8 @@ package Tests;
         import PageObjects.AssetsPage;
         import PageObjects.OldAssetPage;
         import PageObjects.RealTimeMapPage;
+        import org.junit.Assert;
         import org.junit.Test;
-
         import static org.junit.Assert.assertEquals;
 
 public class ClickOnMenuItemAssetsTest extends AssetTest {
@@ -29,8 +29,16 @@ public class ClickOnMenuItemAssetsTest extends AssetTest {
 //        ((OldAssetPage)testPage).clickMenuItemRealtime();
 //        ((RealTimeMapPage)testPage).clickMenuItemAssets();
 
-        assertEquals("Assets page", testPage.GetTitle());
+//        String t = testPage.GetTitle();
         System.out.println(testPage.GetTitle());
+
+//        String e = "Assets page";
+        Assert.assertEquals("VmsFrontend", testPage.GetTitle());
+//        Assert.assertEquals(e, t);
+
+        String URL = testPage.GetURL();
+        System.out.println(URL);
+        Assert.assertEquals("http://liaswf05u:28080/asset", URL );
 
         return;
     }
