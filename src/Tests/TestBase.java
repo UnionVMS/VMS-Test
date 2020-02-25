@@ -2,28 +2,27 @@ package Tests;
 
 import PageObjects.OldLoginPage;
 import PageObjects.PageBase;
-import org.junit.*;
-import org.junit.rules.ExternalResource;
+import Utilities.Constants;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
+
 public abstract class TestBase {
 
     public static WebDriver driver;
 
-    private static String username = "vms_admin_se";
-    private static String password = "password";
-    private static String loginURL = "http://liaswf05u:28080/unionvms/#/login";
-
     protected static PageBase testPage;
 
-    @ClassRule
-    public static final TestResources res = new TestResources();
+//    @ClassRule
+//    public static final TestResources res = new TestResources();
 
-
-    public static class TestResources extends ExternalResource {
+    public static class TestResources {
         protected void before() {
             // Setup logic that used to be in @BeforeClass
             //setting the driver executable
@@ -45,31 +44,40 @@ public abstract class TestBase {
         }
     }
 
-
-
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeTestClass(){
+        System.out.println("TB BeforeAll");
+
+        TestResources res = new TestResources();
+        res.before();
     }
 
-    @Before
+    @BeforeEach
     public void setUpBeforeTestMethod() {
         // initialize testPage
         // login to the app, if necessary
+        System.out.println("TB BeforeEach");
 
         OldLoginPage lp = new OldLoginPage(driver);
-        driver.get(loginURL);
-        lp.typeUsername(username);
-        lp.typePassword(password);
+        driver.get(Constants.loginURL);
+        lp.typeUsername(Constants.username);
+        lp.typePassword(Constants.password);
         testPage = lp.submitLogin();
 
     }
 
-    @After
+    @AfterEach
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
+        System.out.println("TB AfterEach");
+
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterTestClass() {
+        System.out.println("TB AfterAll");
+
+        TestResources res = new TestResources();
+        res.after();
     }
 }

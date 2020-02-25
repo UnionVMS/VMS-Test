@@ -1,11 +1,7 @@
 package Tests;
 
-        import PageObjects.AssetsPage;
-        import PageObjects.OldAssetPage;
-        import PageObjects.RealTimeMapPage;
-        import org.junit.Assert;
-        import org.junit.Test;
-        import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ClickOnMenuItemAssetsTest extends AssetTest {
 
@@ -19,12 +15,6 @@ public class ClickOnMenuItemAssetsTest extends AssetTest {
     public void ClickOnMenuItemAssets (){
         // test is ready to go!
 //        super.setUpBeforeTestMethod();
-        OldAssetPage oldAssetPage = (OldAssetPage) testPage;
-
-        testPage = oldAssetPage.clickMenuItemRealtime();
-
-        RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
-        testPage = realTimeMapPage.clickMenuItemAssets();
 
 //        ((OldAssetPage)testPage).clickMenuItemRealtime();
 //        ((RealTimeMapPage)testPage).clickMenuItemAssets();
@@ -33,13 +23,12 @@ public class ClickOnMenuItemAssetsTest extends AssetTest {
         System.out.println(testPage.GetTitle());
 
 //        String e = "Assets page";
-        Assert.assertEquals("VmsFrontend", testPage.GetTitle());
+        assertEquals("VmsFrontend", testPage.GetTitle());
 //        Assert.assertEquals(e, t);
 
-        String URL = testPage.GetURL();
-        System.out.println(URL);
-        Assert.assertEquals("http://liaswf05u:28080/asset", URL );
+        String path = testPage.GetPath();
+        System.out.println(path);
+        assertEquals("/asset", path );
 
-        return;
     }
 }

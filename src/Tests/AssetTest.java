@@ -1,34 +1,51 @@
 package Tests;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import PageObjects.OldAssetPage;
+import PageObjects.RealTimeMapPage;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 abstract class AssetTest extends TestBase {
 
 
-/*    @BeforeClass
+/*    @BeforeAll
     public static void setUpBeforeTestClass(){
+        //super.setUpBeforeTestMethod();
         // no changes needed
+        System.out.println("AT BeforeAll");
      }*/
 
-    @Before
+    @BeforeEach
     public void setUpBeforeTestMethod() {
         // do the parent actions, then add some post-specific actions
+        System.out.println("AT BeforeEach");
         super.setUpBeforeTestMethod();
 
+        OldAssetPage oldAssetPage = (OldAssetPage) testPage;
+
+        testPage = oldAssetPage.clickMenuItemRealtime();
+
+        RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
+        testPage = realTimeMapPage.clickMenuItemAssets();
+
     }
 
-    @After
+    @AfterEach
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
+        System.out.println("AT AfterEach");
         super.tearDownAfterTestMethod();
+
     }
 
-/*    @AfterClass
+/*    @AfterAll
     public static void tearDownAfterTestClass() {
         // close connections, close browser as needed
+//        super.tearDownAfterTestMethod();
+        System.out.println("AT AfterAll");
+
     }*/
 
 }
