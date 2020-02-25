@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.net.URI;
@@ -11,6 +12,8 @@ public abstract class PageBase {
     protected PageBase(WebDriver driver) {
         this.driver = driver;
     }
+
+    By logoutLocator = By.linkText("Logout");
 
     public String GetTitle() {
         return driver.getTitle();
@@ -38,5 +41,9 @@ public abstract class PageBase {
             e.printStackTrace();
         }
         return uri != null ? uri.getPath() : "";
+    }
+
+    public void Logout() {
+        driver.findElement(logoutLocator).click();
     }
 }

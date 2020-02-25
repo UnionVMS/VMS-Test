@@ -70,7 +70,9 @@ public abstract class TestBase {
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
         System.out.println("TB AfterEach");
-
+        testPage.Logout();
+        //Applied wait time
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @AfterAll

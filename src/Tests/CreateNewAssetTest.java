@@ -29,14 +29,14 @@ public class CreateNewAssetTest extends AssetTest {
         return new String[] { "Asset_01", "Asset_02", "Asset_03" };
     }*/
 
-    @BeforeEach
+/*    @BeforeEach
     public void setUpBeforeTestMethod() {
         System.out.println("CNAT BeforeEach");
         // initialize testPage
         // login to the app, if necessary
         super.setUpBeforeTestMethod();
 
-    }
+    }*/
 
     @ParameterizedTest
     @ValueSource(strings = { "Asset_01", "Asset_02", "Asset_03" })
