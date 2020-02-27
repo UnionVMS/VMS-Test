@@ -61,6 +61,8 @@ public class CreateNewAssetTest extends AssetTest {
         //assetsPage.createNewAsset(assetData);
         //assertTrue(true) ;
 
+
+        // todo: bygga struktur för API-anrop
         OkHttpClient client = new OkHttpClient();
 
         MediaType mediaType = MediaType.parse("application/json");
