@@ -1,6 +1,7 @@
 package Tests;
 
 import DataModels.AssetData;
+import Database.DBUtils;
 import PageObjects.AssetsPage;
 import Utilities.Constants;
 import okhttp3.*;
@@ -20,6 +21,8 @@ import java.sql.*;
 import java.sql.Connection;
 import java.util.Properties;
 
+
+import static Utilities.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
@@ -52,6 +55,7 @@ public class CreateNewAssetTest extends AssetTest {
     public void CreateNewAsset (String dataFile) throws IOException {
 
         assetData = AssetData.get(dataFile);
+        assetData.randomizeData();
 
         //AssetsPage assetsPage = (AssetsPage) testPage;
         //assetsPage.createNewAsset(assetData);
@@ -62,64 +66,24 @@ public class CreateNewAssetTest extends AssetTest {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, assetData.toString());
 
-        String USMurl = "http:liaswf05u:28080/unionvms/usm-administration/rest/authenticate";
-
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("userName", "vms_admin_se");
-        jsonObject.put("password", "password");
+        jsonObject.put("userName", username);
+        jsonObject.put("password", password);
 
         RequestBody usmBody = RequestBody.create(mediaType, jsonObject.toString());
-//        RequestBody usmBody = jsonObject.toString().toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull());
-        //RequestBody usmBody = RequestBody.create(mediaType, "\"userName\": " +  "vms_admin_se" + ", \"password\": " + "password");
 
         Request tokenRequest = new Request.Builder()
-                .url(USMurl)
+                .url(usmURL)
                 .post(usmBody)
                 .addHeader("content-type", "application/json")
                 .addHeader("cache-control", "no-cache")
-//                .addHeader("Authorization", "Basic Base64_encoded_clientId:clientSecret")
                 .addHeader("authorization", "Basic " + Base64Utility.encode("vms_admin_se:password".getBytes()))
-
-//                .addHeader("Accept", "application/x-www-form-urlencoded")
                 .build();
-
-/*        String username = "" // your username
-        String password = "" // your password
-        String userAndPass = username + ":" + password;
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("Authorization", "Basic " +
-                Base64Utility.encode(userAndPass.getBytes()));
-        HttpEntity<?> entity = new HttpEntity<>(headers);
-
-        String authUri = "" // uri to service which you get the token from
-        ResponseEntity<AuthenticationToken> response =
-                restTemplate.exchange(authUri, HttpMethod.POST, entity,
-                        AuthenticationToken.class);
-        String token = response.getBody().getToken();
-  */
 
         Response usmResponse = client.newCall(tokenRequest).execute();
 
         String token = new JSONObject(usmResponse.body().string()).getString("jwtoken");
-
-
-
-/*        String token = given()
-                .contentType("application/json")
-                .body(new User("someuser" , "123"))
-                .when()
-                .post(RestConfig.baseUrl+"/authentication-url")
-                .then().extract().response().as(TokenResponse.class).getToken();
-
-        given()
-                .contentType("application/json")
-                .header("Authorization", token)
-                .get(RestConfig.baseUrl+"/some-path")
-                .then()
-                .statusCode(200)...       */
 
         Request request = new Request.Builder()
                 .url("http://liaswf05u:28080/unionvms/asset/rest/asset")
@@ -135,46 +99,9 @@ public class CreateNewAssetTest extends AssetTest {
         // Grab id and add contact
         System.out.println(response.body().string());
 
+        DBUtils.DeleteAssetBasedOnCFR(assetData.cfr);
 
-        try {
 
-        String url = "jdbc:postgresql://lipsql02u/unionvmsdev?user=postgres&password=password&ssl=false";
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(url);
-        int foovalue = 500;
-            PreparedStatement st = conn.prepareStatement("select * from asset.asset where cfr = 'SWE0000F9999'");  // WHERE columnfoo = ?");
-//            st.setInt(1, foovalue);
-            ResultSet rs = st.executeQuery();
-            while (rs.next())
-            {
-                System.out.print("Got it! ");
-                System.out.println(rs.getString("cfr"));
-            }
-            rs.close();
-            st.close();
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-/*
-
-        PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:11.1")
-                .withDatabaseName("unionvmsdev")
-                .withUsername("postgres")
-                .withPassword("");
-        postgreSQLContainer.start();
-
-        Statement statement = ds.getConnection().createStatement();
-        statement.execute("SELECT 1");
-
-        ResultSet resultSet = performQuery(postgreSQLContainer, "SELECT 1");
-        int resultSetInt = 0;
-        try {
-            resultSetInt = resultSet.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        assertEquals("A basic SELECT query succeeds", 1, resultSetInt);
-*/
 
 // TODO Hur hantera testdata? Slumpa in värden? Radera efter test? Nollställ efter suite? Kunna testa mot skarp data? Läsa upp data att testa med? DBUnit?
 // Lägg till generering av randomnummer baserat på längd. Ha hantering av krockar på ett fint sätt.

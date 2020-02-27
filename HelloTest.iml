@@ -19,5 +19,6 @@
     <orderEntry type="library" name="org.testcontainers:testcontainers:LATEST" level="project" />
     <orderEntry type="library" name="org.testcontainers:postgresql:LATEST" level="project" />
     <orderEntry type="library" name="org.postgresql:postgresql:LATEST" level="project" />
+    <orderEntry type="library" name="javax.ws.rs:javax.ws.rs-api:LATEST" level="project" />
   </component>
 </module>

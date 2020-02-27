@@ -1,6 +1,6 @@
 package DataModels.DataConstraints;
 
-public class GrossTonnageUnit extends CommonConstraints {
+public class Imo extends CommonConstraints {
 
     private static int _maxLength = 7;
 

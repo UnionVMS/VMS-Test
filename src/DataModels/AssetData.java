@@ -1,5 +1,9 @@
 package DataModels;
 
+import DataModels.DataConstraints.Cfr;
+import DataModels.DataConstraints.Imo;
+import DataModels.DataConstraints.Ircs;
+import DataModels.DataConstraints.Mmsi;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +14,6 @@ import java.io.IOException;
 public class AssetData {
 
     @JsonProperty("grossTonnageUnit")
-    //GrossTonnageUnit grossTonnageUnit;
     String grossTonnageUnit;
 
     @JsonProperty("flagStateCode")
@@ -26,7 +29,7 @@ public class AssetData {
     String externalMarking;
 
     @JsonProperty("cfr")
-    String cfr;
+    public String cfr;
 
     @JsonProperty("imo")
     String imo;
@@ -58,39 +61,12 @@ public class AssetData {
     @JsonProperty("vesselType")
     String vesselType;
 
-/*    @JsonProperty("firstname")
-    String firstname;
-
-    @JsonProperty("lastname")
-    String lastname;
-
-    @JsonProperty("dob")
-    String DOB;
-
-    @JsonProperty("email")
-    String email;
-
-    @JsonProperty("address")
-    String address;
-
-    @JsonProperty("cc")
-    CC cc;
-
-    @JsonProperty("product")
-    Product product;
-
-    static class CC {
-        @JsonProperty("number")
-        String number;
-
-        @JsonProperty("billing")
-        String billingAddress;
+    public void randomizeData() {
+        cfr = Cfr.generateTestValue();
+        ircs = Ircs.generateTestValue();
+        mmsi = Mmsi.generateTestValue();
+        imo = Imo.generateTestValue();
     }
-
-    static class Product {
-        @JsonProperty("searchCriteria")
-        String criteria;
-    }*/
 
     public static AssetData get(String filename) throws IOException {
         String fullFileName = "src/Data/" + filename + ".json";
@@ -104,7 +80,7 @@ public class AssetData {
             return mapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
+            return e.getMessage();
         }
-        return "Error";
     }
 }
