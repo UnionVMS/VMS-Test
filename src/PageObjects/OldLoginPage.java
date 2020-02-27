@@ -2,6 +2,10 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class OldLoginPage extends PageBase {
 
@@ -27,6 +31,9 @@ public class OldLoginPage extends PageBase {
     // The login page allows the user to type their username into the username field
     public OldLoginPage typeUsername(String username) {
         // This is the only place that "knows" how to enter a username
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameLocator));
         driver.findElement(usernameLocator).sendKeys(username);
 
         // Return the current page object as this action doesn't navigate to a page represented by another PageObject
@@ -36,6 +43,9 @@ public class OldLoginPage extends PageBase {
     // The login page allows the user to type their password into the password field
     public OldLoginPage typePassword(String password) {
         // This is the only place that "knows" how to enter a password
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordLocator));
         driver.findElement(passwordLocator).sendKeys(password);
 
         // Return the current page object as this action doesn't navigate to a page represented by another PageObject
@@ -46,6 +56,9 @@ public class OldLoginPage extends PageBase {
     public OldAssetPage submitLogin() {
         // This is the only place that submits the login form and expects the destination to be the home page.
         // A separate method should be created for the instance of clicking login whilst expecting a login failure.
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginButtonLocator));
         driver.findElement(loginButtonLocator).click();
 
         // Return a new page object representing the destination. Should the login page ever

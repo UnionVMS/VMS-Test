@@ -14,5 +14,10 @@
     <orderEntry type="library" name="org.springframework:spring-test:LATEST" level="project" />
     <orderEntry type="library" name="org.junit.platform:junit-platform-launcher:LATEST" level="project" />
     <orderEntry type="library" name="org.seleniumhq.selenium:selenium-java:RELEASE" level="project" />
+    <orderEntry type="library" name="org.json:json:LATEST" level="project" />
+    <orderEntry type="library" name="org.apache.cxf:cxf-api:2.7.18" level="project" />
+    <orderEntry type="library" name="org.testcontainers:testcontainers:LATEST" level="project" />
+    <orderEntry type="library" name="org.testcontainers:postgresql:LATEST" level="project" />
+    <orderEntry type="library" name="org.postgresql:postgresql:LATEST" level="project" />
   </component>
 </module>

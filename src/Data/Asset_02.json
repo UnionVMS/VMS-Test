@@ -1,14 +1,18 @@
 {
-  "firstname":"testautomation",
-  "lastname":"guru",
-  "dob":"01/01/2000",
-  "email":"noreply@gmail.com",
-  "address":"123 non main st",
-  "cc":{
-    "number":"4444-4444-4444-4444",
-    "billing":"123 non main st"
-  },
-  "product":{
-    "searchCriteria":"criteria"
-  }
+  "grossTonnageUnit":"LONDON",
+  "flagStateCode":"SWE",
+  "ircs":"09",
+  "name":"AbelShip99",
+  "externalMarking":"EXT99",
+  "cfr":"SWE0000F9999",
+  "imo":"ABL9999",
+  "portOfRegistration":"GOT",
+  "mmsi":"502069999",
+  "lengthOverAll":"14",
+  "lengthBetweenPerpendiculars":"20",
+  "grossTonnage":"99",
+  "powerOfMainEngine": "99",
+  "prodOrgName":"Abel",
+  "prodOrgCode":"Abel99",
+  "vesselType":"Fishing"
 }

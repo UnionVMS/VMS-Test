@@ -1,16 +1,64 @@
 package DataModels;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 public class AssetData {
-    @JsonProperty("firstname")
+
+    @JsonProperty("grossTonnageUnit")
+    //GrossTonnageUnit grossTonnageUnit;
+    String grossTonnageUnit;
+
+    @JsonProperty("flagStateCode")
+    String flagStateCode;
+
+    @JsonProperty("ircs")
+    String ircs;
+
+    @JsonProperty("name")
+    String name;
+
+    @JsonProperty("externalMarking")
+    String externalMarking;
+
+    @JsonProperty("cfr")
+    String cfr;
+
+    @JsonProperty("imo")
+    String imo;
+
+    @JsonProperty("portOfRegistration")
+    String portOfRegistration;
+
+    @JsonProperty("mmsi")
+    String mmsi;
+
+    @JsonProperty("lengthOverAll")
+    String lengthOverAll;
+
+    @JsonProperty("lengthBetweenPerpendiculars")
+    String lengthBetweenPerpendiculars;
+
+    @JsonProperty("grossTonnage")
+    String grossTonnage;
+
+    @JsonProperty("powerOfMainEngine")
+    String powerOfMainEngine;
+
+    @JsonProperty("prodOrgName")
+    String prodOrgName;
+
+    @JsonProperty("prodOrgCode")
+    String prodOrgCode;
+
+    @JsonProperty("vesselType")
+    String vesselType;
+
+/*    @JsonProperty("firstname")
     String firstname;
 
     @JsonProperty("lastname")
@@ -42,14 +90,21 @@ public class AssetData {
     static class Product {
         @JsonProperty("searchCriteria")
         String criteria;
-    }
+    }*/
 
     public static AssetData get(String filename) throws IOException {
-        //resourcesloader.class.getClassLoader().getResource("package1/resources/repository/SSL-Key/cert.jks").toString();
         String fullFileName = "src/Data/" + filename + ".json";
-//        URL url = AssetData.class.getResource(filename);
-//        File file = new File(url.getPath());
         ObjectMapper mapper = new ObjectMapper();
-           return mapper.readValue(new File(fullFileName), AssetData.class);
+        return mapper.readValue(new File(fullFileName), AssetData.class);
+    }
+
+    public String toString() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return "Error";
     }
 }

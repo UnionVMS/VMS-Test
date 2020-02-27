@@ -56,7 +56,7 @@ public class Hello {
         System.out.println("Result=="+result.wasSuccessful());
 */
 
-/*
+
         SummaryGeneratingListener listener2 = new SummaryGeneratingListener();
         LauncherDiscoveryRequest request2 = LauncherDiscoveryRequestBuilder.request()
                 .selectors(selectClass(ClickOnMenuItemAssetsTest.class))
@@ -69,7 +69,7 @@ public class Hello {
         TestExecutionSummary summary2 = listener2.getSummary();
         summary2.printTo(new PrintWriter(System.out));
 
-*/
+
 
 
         SummaryGeneratingListener listener = new SummaryGeneratingListener();

@@ -35,7 +35,7 @@ public abstract class TestBase {
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
             //maximize window
-            driver.manage().window().maximize();
+            //driver.manage().window().maximize();
         }
         protected void after() {
             // Setup logic that used to be in @AfterClass
@@ -60,6 +60,8 @@ public abstract class TestBase {
 
         OldLoginPage lp = new OldLoginPage(driver);
         driver.get(Constants.loginURL);
+        //Applied wait time
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         lp.typeUsername(Constants.username);
         lp.typePassword(Constants.password);
         testPage = lp.submitLogin();
@@ -70,9 +72,8 @@ public abstract class TestBase {
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
         System.out.println("TB AfterEach");
-        testPage.Logout();
-        //Applied wait time
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        testPage.Logout();
     }
 
     @AfterAll
