@@ -1,5 +1,7 @@
 package Tests;
 
+import API.AssetModule.AssetService;
+import API.BaseAPIService;
 import DataModels.AssetData;
 import Database.DBUtils;
 import PageObjects.AssetsPage;
@@ -54,52 +56,14 @@ public class CreateNewAssetTest extends AssetTest {
     @ValueSource(strings = { "Asset_01", "Asset_02" })
     public void CreateNewAsset (String dataFile) throws IOException {
 
+        //AssetsPage assetsPage = (AssetsPage) testPage;
+        //assetsPage.createNewAsset(assetData);
+        //assertTrue(true);
+
         assetData = AssetData.get(dataFile);
         assetData.randomizeData();
 
-        //AssetsPage assetsPage = (AssetsPage) testPage;
-        //assetsPage.createNewAsset(assetData);
-        //assertTrue(true) ;
-
-
-        // todo: bygga struktur för API-anrop
-        OkHttpClient client = new OkHttpClient();
-
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, assetData.toString());
-
-
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("userName", username);
-        jsonObject.put("password", password);
-
-        RequestBody usmBody = RequestBody.create(mediaType, jsonObject.toString());
-
-        Request tokenRequest = new Request.Builder()
-                .url(usmURL)
-                .post(usmBody)
-                .addHeader("content-type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("authorization", "Basic " + Base64Utility.encode("vms_admin_se:password".getBytes()))
-                .build();
-
-        Response usmResponse = client.newCall(tokenRequest).execute();
-
-        String token = new JSONObject(usmResponse.body().string()).getString("jwtoken");
-
-        Request request = new Request.Builder()
-                .url("http://liaswf05u:28080/unionvms/asset/rest/asset")
-                .post(body)
-                .addHeader("content-type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", token)
-                .addHeader("accept", "application/json")
-                .build();
-
-        Response response = client.newCall(request).execute();
-
-        // Grab id and add contact
-        System.out.println(response.body().string());
+        AssetService.CreateAsset(assetData.toString());
 
         DBUtils.DeleteAssetBasedOnCFR(assetData.cfr);
 
