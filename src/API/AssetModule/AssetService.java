@@ -1,19 +1,14 @@
 package API.AssetModule;
 
 import API.BaseAPIService;
-import DataModels.AssetData;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import okhttp3.MediaType;
+import API.APISecurity;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.apache.cxf.common.jaxb.JAXBUtils;
-import org.json.JSONObject;
+
 import static Utilities.Constants.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 
 public class AssetService extends BaseAPIService {
 
@@ -28,7 +23,7 @@ public class AssetService extends BaseAPIService {
                 .post(requestBody)
                 .addHeader("content-type", inputContentType.toString())
                 .addHeader("cache-control", cacheControl)
-                .addHeader("authorization", getTokenString())
+                .addHeader("authorization", APISecurity.getTokenString())
                 .addHeader("accept", outputContentType.toString())
                 .build();
         return request;
@@ -46,7 +41,7 @@ public class AssetService extends BaseAPIService {
 
     public static String CreateAsset(String assetData)  throws IOException {
 
-        RequestBody body = RequestBody.create(BaseAPIService.inputContentType, assetData);
+        RequestBody body = RequestBody.create(inputContentType, assetData);
         Request request = GetCreateAssetRequest(body);
         Response response = getCreateAssetResponse(request);
 
