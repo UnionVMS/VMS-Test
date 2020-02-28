@@ -11,4 +11,6 @@ public class Constants {
     public static MediaType inputContentType = MediaType.parse("application/json");
     public static MediaType outputContentType = MediaType.parse("application/json");
     public static String cacheControl = "no-cache";
+    public static String CreateAssetURL = "http://" + devServer + ":28080/unionvms/asset/rest/asset";
+
 }

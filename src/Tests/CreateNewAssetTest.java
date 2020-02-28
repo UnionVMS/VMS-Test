@@ -1,32 +1,15 @@
 package Tests;
 
-import API.AssetModule.AssetService;
-import API.BaseAPIService;
+import API.AssetModule.AssetService.AssetService;
 import DataModels.AssetData;
 import Database.DBUtils;
-import PageObjects.AssetsPage;
-import Utilities.Constants;
-import okhttp3.*;
-import org.apache.cxf.common.util.Base64Utility;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.json.JSONObject;
-import org.testcontainers.containers.PostgreSQLContainer;
 
-import org.postgresql.Driver;
 import java.io.IOException;
-import java.sql.*;
-import java.sql.Connection;
-import java.util.Properties;
 
 
-import static Utilities.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 //@RunWith(Parameterized.class)
 //@ExtendWith(SpringExtension.class)
