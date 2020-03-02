@@ -1,5 +1,6 @@
 package API.AssetModule.AssetService;
 
+import API.APIUtils;
 import API.BaseAPIService;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -20,12 +21,21 @@ public class AssetService extends BaseAPIService {
         String responseBody = null;
         try {
             responseBody = response.body().string();
+            return responseBody;
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
 
-        return responseBody;
 
     }
+    public static String CreateContact(String assetID, String contactData)  throws IOException {
 
+        String updatedContactData = APIUtils.SetNodeValue(contactData, "assetId", assetID);
+        RequestBody body = RequestBody.create(inputContentType, updatedContactData);
+        Request request = Create(createContactURL, body, createContactInvocationType);
+        Response response = Execute(request);
+            return response.message();
+
+    }
 }

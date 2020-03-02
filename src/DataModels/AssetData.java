@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 
-public class AssetData {
+public class AssetData extends DataModelBase{
 
 
     @JsonProperty("grossTonnageUnit")
@@ -75,13 +75,4 @@ public class AssetData {
         return mapper.readValue(new File(fullFileName), AssetData.class);
     }
 
-    public String toString() {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return e.getMessage();
-        }
-    }
 }

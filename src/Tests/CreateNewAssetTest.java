@@ -1,8 +1,11 @@
 package Tests;
 
+import API.APIUtils;
 import API.AssetModule.AssetService.AssetService;
 import DataModels.AssetData;
+import DataModels.ContactData;
 import Database.DBUtils;
+import PageObjects.AssetsPage;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.io.IOException;
@@ -35,16 +38,19 @@ public class CreateNewAssetTest extends AssetTest {
     @ValueSource(strings = { "Asset_01", "Asset_02" })
     public void CreateNewAsset (String dataFile) throws IOException {
 
-        //AssetsPage assetsPage = (AssetsPage) testPage;
-        //assetsPage.createNewAsset(assetData);
-        //assertTrue(true);
-
         assetData = AssetData.get(dataFile);
         assetData.randomizeData();
+        String createdAsset = AssetService.CreateAsset(assetData.toString());
+        String createdAssetID = APIUtils.GetNodeValue(createdAsset, "id");
 
-        AssetService.CreateAsset(assetData.toString());
+        ContactData contactData = ContactData.get(dataFile + "_Contact");
+        AssetService.CreateContact(createdAssetID, contactData.toString());
 
-        DBUtils.DeleteAssetBasedOnCFR(assetData.cfr);
+        AssetsPage assetsPage = (AssetsPage) testPage;
+        //assertTrue(true);
+
+        int deletedContacts = DBUtils.DeleteContactsBasedOnAssetID(createdAssetID);
+        int deletedAssets = DBUtils.DeleteAssetBasedOnCFR(assetData.cfr);
 
 
 

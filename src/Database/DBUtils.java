@@ -39,6 +39,21 @@ public class DBUtils {
         return result;
     }
 
+    public static int DeleteContactsBasedOnAssetID(String assetID) {
+        int result;
+        Connection conn = getConnection();
+
+        try {
+            PreparedStatement st = conn.prepareStatement("delete from asset.contactinfo where assetid = UUID(?)");
+            st.setString(1, assetID);
+            result = st.executeUpdate();
+        } catch (NullPointerException | SQLException ex) {
+            ex.printStackTrace();
+            return (-1);
+        }
+        return result;
+    }
+
 /*
 
         while (rs.next())

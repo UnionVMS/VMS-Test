@@ -1,9 +1,6 @@
 package API;
 
-import API.AssetModule.AssetService.AssetService;
 import okhttp3.*;
-import org.apache.cxf.common.util.Base64Utility;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -16,14 +13,14 @@ public class BaseAPIService {
     protected static Request Create(String URL, RequestBody requestBody, InvocationType invocationType) {
 
         switch(invocationType) {
-            case GET:
-                return GetRequest(URL,
+            case POST:
+                return PostRequest(URL,
                         requestBody,
                         inputContentType.toString(),
                         cacheControl, APISecurity.getTokenString(),
                         outputContentType.toString());
             case PUT:
-            case POST:
+            case GET:
             case DELETE:
             default:
                 return null;
@@ -40,12 +37,12 @@ public class BaseAPIService {
         return response;
     }
 
-    private static Request GetRequest(String URL,
-                                        RequestBody requestBody,
-                                        String contentType ,
-                                        String cacheControl,
-                                        String authorization,
-                                        String accept) {
+    private static Request PostRequest(String URL,
+                                       RequestBody requestBody,
+                                       String contentType ,
+                                       String cacheControl,
+                                       String authorization,
+                                       String accept) {
 
         Request request = new Request.Builder()
                 .url(URL)

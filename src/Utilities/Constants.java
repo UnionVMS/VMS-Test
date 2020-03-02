@@ -16,5 +16,7 @@ public class Constants {
     public static String APIURLPort = ":28080";
     public static String APIURLBase = "/unionvms";
     public static String createAssetURL = APIURLPrefix + devServer + APIURLPort + APIURLBase + "/asset/rest/asset";
-    public static InvocationType createAssetInvocationType = InvocationType.GET;
+    public static InvocationType createAssetInvocationType = InvocationType.POST;
+    public static String createContactURL = APIURLPrefix + devServer + APIURLPort + APIURLBase + "/asset/rest/asset/contacts";
+    public static InvocationType createContactInvocationType = InvocationType.POST;
 }

@@ -19,7 +19,7 @@ public class AssetsPage extends PageBase {
     // The locators for these elements should only be defined once.
     By menuItemAssetsLocator = By.linkText("Assets");
 
-    public AssetsPage createNewAsset(AssetData assetData) {
+    public AssetsPage verifyAsset(AssetData assetData) {
 
 
         // ToDo: Enter data into corresponding elements
