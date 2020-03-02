@@ -1,7 +1,6 @@
 package API.AssetModule.AssetService;
 
 import API.BaseAPIService;
-import API.APISecurity;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
@@ -12,17 +11,11 @@ import java.io.IOException;
 
 public class AssetService extends BaseAPIService {
 
-    public enum InvocationType { GET, PUT, DELETE, POST };
-    private String createAssetPath = "/asset";
-    private InvocationType createAssetPathInvocation = InvocationType.GET;
-    private static String CreateAssetURL = "http://liaswf05u:28080/unionvms/asset/rest/asset";
-
-
     public static String CreateAsset(String assetData)  throws IOException {
 
         RequestBody body = RequestBody.create(inputContentType, assetData);
-        Request request = GetRequest(CreateAssetURL, body);
-        Response response = GetResponse(request);
+        Request request = Create(createAssetURL, body, createAssetInvocationType);
+        Response response = Execute(request);
 
         String responseBody = null;
         try {
@@ -32,10 +25,7 @@ public class AssetService extends BaseAPIService {
         }
 
         return responseBody;
-//        System.out.println(responseBody);
 
-//        ObjectMapper mapper = new ObjectMapper();
-//        return mapper.readValue(responseBody, AssetData.class);
     }
 
 }

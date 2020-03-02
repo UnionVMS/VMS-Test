@@ -11,6 +11,10 @@ public class Constants {
     public static MediaType inputContentType = MediaType.parse("application/json");
     public static MediaType outputContentType = MediaType.parse("application/json");
     public static String cacheControl = "no-cache";
-    public static String CreateAssetURL = "http://" + devServer + ":28080/unionvms/asset/rest/asset";
-
+    public static enum InvocationType { GET, PUT, DELETE, POST };
+    public static String APIURLPrefix = "http://";
+    public static String APIURLPort = ":28080";
+    public static String APIURLBase = "/unionvms";
+    public static String createAssetURL = APIURLPrefix + devServer + APIURLPort + APIURLBase + "/asset/rest/asset";
+    public static InvocationType createAssetInvocationType = InvocationType.GET;
 }

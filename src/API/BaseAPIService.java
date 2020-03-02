@@ -12,12 +12,25 @@ import static Utilities.Constants.*;
 public class BaseAPIService {
 
     protected static OkHttpClient client = new OkHttpClient();
-//    private enum InvocationType { GET, PUT, DELETE, POST };
-//    private String createAssetPath = "/asset";
-//    private AssetService.InvocationType createAssetPathInvocation = AssetService.InvocationType.GET;
 
+    protected static Request Create(String URL, RequestBody requestBody, InvocationType invocationType) {
 
-    protected static Response Get(Request request) {
+        switch(invocationType) {
+            case GET:
+                return GetRequest(URL,
+                        requestBody,
+                        inputContentType.toString(),
+                        cacheControl, APISecurity.getTokenString(),
+                        outputContentType.toString());
+            case PUT:
+            case POST:
+            case DELETE:
+            default:
+                return null;
+        }
+    }
+
+    protected static Response Execute(Request request) {
         Response response = null;
         try {
             response = client.newCall(request).execute();
@@ -27,7 +40,7 @@ public class BaseAPIService {
         return response;
     }
 
-    protected static Request GetRequest(String URL,
+    private static Request GetRequest(String URL,
                                         RequestBody requestBody,
                                         String contentType ,
                                         String cacheControl,
@@ -45,23 +58,6 @@ public class BaseAPIService {
         return request;
     }
 
-    protected static Request GetRequest(String URL, RequestBody requestBody) {
-         return GetRequest(URL,
-                            requestBody,
-                            inputContentType.toString(),
-                            cacheControl, APISecurity.getTokenString(),
-                            outputContentType.toString());
-    }
-
-    protected static Response GetResponse(Request request) {
-        Response response = null;
-        try {
-            response = client.newCall(request).execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return response;
-    }
 }
 
 
