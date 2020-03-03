@@ -51,7 +51,7 @@ public class APISecurity {
         Response response = getTokenResponse(getTokenRequest(getTokenRequestBody()));
         String token = null;
         try {
-            token = new JSONObject(response.body().string()).getString("jwtoken");
+            token = new JSONObject(response.body().string()).getString(tokenKey);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 package Tests;
 
 import API.APIUtils;
-import API.AssetModule.AssetService.AssetService;
+import API.AssetModule.AssetService;
 import DataModels.AssetData;
 import DataModels.ContactData;
 import Database.DBUtils;
@@ -49,6 +49,8 @@ public class CreateNewAssetTest extends AssetTest {
         AssetsPage assetsPage = (AssetsPage) testPage;
         //assertTrue(true);
 
+        assetsPage.verifyAsset(assetData, createdAssetID);
+
         int deletedContacts = DBUtils.DeleteContactsBasedOnAssetID(createdAssetID);
         int deletedAssets = DBUtils.DeleteAssetBasedOnCFR(assetData.cfr);
 
@@ -60,6 +62,6 @@ public class CreateNewAssetTest extends AssetTest {
 // Hur göra med test av delad miljö/kopia på proddata? Flagga för att radera data efter test med SQL/API
 
 
-        }
+            }
     }
 

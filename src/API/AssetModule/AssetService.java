@@ -1,4 +1,4 @@
-package API.AssetModule.AssetService;
+package API.AssetModule;
 
 import API.APIUtils;
 import API.BaseAPIService;
@@ -26,7 +26,6 @@ public class AssetService extends BaseAPIService {
             e.printStackTrace();
             return null;
         }
-
 
     }
     public static String CreateContact(String assetID, String contactData)  throws IOException {
