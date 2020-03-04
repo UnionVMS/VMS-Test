@@ -108,31 +108,19 @@ public class AssetsPage extends PageBase {
         self.assertEqual(contactTypeValue[vesselNumber], allContactsElements[7].text)
         time.sleep(defaultSleepTimeValue * 10)
 */
-
-
-
-        // Return a new page object representing the destination. Should the login page ever
-        // go somewhere else (for example, a legal disclaimver) then changing the method signature
-        // for this method will mean that all tests that rely on this behaviour won't compile.
         return this;
     }
     private void setCountryFilter(String country, boolean enabled) {
 
         driver.findElement(countryFieldLocator).click();
-       // countryCheckBox = country;
 
-//        String xpath = "//mat-option[span[text()[contains(.,'{SWE}')]]]";
         countryRowLocator = By.cssSelector("#mat-option-" + country);
-        //countryRowLocator = By.xpath(xpath);
         WebElement countryRow = driver.findElement(countryRowLocator);
 
         if (countryRow.getAttribute("aria-selected").equals(String.valueOf(!enabled)));
         {
             countryRow.click();
         }
-        //if (!(countryRow.isSelected() == enabled)) {
-        //    countryRow.click();
-        //}
 
         driver.findElement(bodyLocator).click();
 

@@ -3,6 +3,7 @@ package Tests;
 import PageObjects.OldLoginPage;
 import PageObjects.PageBase;
 import Utilities.Constants;
+import Utilities.LazyWebDriver;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,7 +30,7 @@ public abstract class TestBase {
             System.setProperty("webdriver.chrome.driver","C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2019.3.3\\lib\\selenium\\chromedriver.exe");
 
             //Initiating your chromedriver
-            driver = new ChromeDriver();
+            driver = new LazyWebDriver(new ChromeDriver(), 20);
 
             //Applied wait time
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
