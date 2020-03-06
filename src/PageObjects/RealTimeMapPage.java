@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class RealTimeMapPage extends PageBase {
 
     public RealTimeMapPage(WebDriver driver) {
@@ -25,8 +27,11 @@ public class RealTimeMapPage extends PageBase {
     public AssetsPage clickMenuItemAssets() {
         // This is the only place that submits the login form and expects the destination to be the home page.
         // A separate method should be created for the instance of clicking login whilst expecting a login failure.
-        WebDriverWait wait = new WebDriverWait(driver,30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(menuItemAssetsLocator));
+//        WebDriverWait wait = new WebDriverWait(driver,30);
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(menuItemAssetsLocator));
+
+//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
         driver.findElement(menuItemAssetsLocator).click();
 
         // Return a new page object representing the destination. Should the login page ever

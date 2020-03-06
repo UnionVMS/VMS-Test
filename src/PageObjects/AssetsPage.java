@@ -17,19 +17,17 @@ public class AssetsPage extends PageBase {
         }*/
     }
 
-//    private String countryCheckBox = "";
-
-    // The locators for these elements should only be defined once.
     By countryFieldLocator = By.cssSelector("mat-form-field");
     By countryRowLocator; //= By.cssSelector("#mat-option-" + countryCheckBox + " .mat-option-text");
     By bodyLocator = By.cssSelector("body");
 
-    public AssetsPage verifyAsset(AssetData assetData, String createdAssetID) {
 
+        public AssetsPage setCountryFilter(String country, boolean countryEnabled) {
 
-       // driver.findElement(menuItemAssetsLocator).click();
-        setCountryFilter("SWE", false);
-
+            countryRowLocator = By.cssSelector("#mat-option-" + country + " .mat-option-text");
+            setValueInDropdown(countryFieldLocator, countryRowLocator, bodyLocator, countryEnabled);
+        return this;
+    }
 /*
     # Deactivate SWE filter
         click_on_flag_state_in_list_tab(self, flagStateIndex[2])
@@ -108,21 +106,8 @@ public class AssetsPage extends PageBase {
         self.assertEqual(contactTypeValue[vesselNumber], allContactsElements[7].text)
         time.sleep(defaultSleepTimeValue * 10)
 */
-        return this;
-    }
-    private void setCountryFilter(String country, boolean enabled) {
 
-        driver.findElement(countryFieldLocator).click();
-
-        countryRowLocator = By.cssSelector("#mat-option-" + country);
-        WebElement countryRow = driver.findElement(countryRowLocator);
-
-        if (countryRow.getAttribute("aria-selected").equals(String.valueOf(!enabled)));
-        {
-            countryRow.click();
-        }
-
-        driver.findElement(bodyLocator).click();
+    // driver.findElement(menuItemAssetsLocator).click();
 
 /*    def click_on_flag_state_in_list_tab(self, flagState):
             # Set wait time for web driver
@@ -141,6 +126,6 @@ public class AssetsPage extends PageBase {
     time.sleep(defaultSleepTimeValue)
             self.driver.find_element_by_css_selector("body").click()
 */
-    }
+
 
 }

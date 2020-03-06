@@ -22,6 +22,8 @@ public class LazyWebElement implements WebElement {
         if (element == null) {
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
             element = driver.findElement(by);
+            //wait.until(ExpectedConditions.stalenessOf(element));
+
         }
 
         return element;

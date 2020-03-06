@@ -1,6 +1,7 @@
 package Utilities;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.Set;
 
-public class LazyWebDriver implements WebDriver {
+public class LazyWebDriver implements WebDriver, JavascriptExecutor {
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -67,5 +68,15 @@ public class LazyWebDriver implements WebDriver {
 
     public List<WebElement> findElements(By by) {
         return new LazyWebElementList(driver, by, wait);
+    }
+
+    @Override
+    public Object executeScript(String script, Object... args) {
+        return ((JavascriptExecutor) driver).executeScript(script, args);
+    }
+
+    @Override
+    public Object executeAsyncScript(String script, Object... args) {
+        return ((JavascriptExecutor) driver).executeAsyncScript(script, args);
     }
 }

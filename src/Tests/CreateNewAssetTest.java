@@ -35,7 +35,7 @@ public class CreateNewAssetTest extends AssetTest {
     }*/
 
     @ParameterizedTest
-    @ValueSource(strings = { "Asset_01", "Asset_02" })
+    @ValueSource(strings = { "Asset_01", "Asset_02", "Asset_03", "Asset_03", "Asset_03", "Asset_03"})
     public void CreateNewAsset (String dataFile) throws IOException {
 
         assetData = AssetData.get(dataFile);
@@ -49,7 +49,7 @@ public class CreateNewAssetTest extends AssetTest {
         AssetsPage assetsPage = (AssetsPage) testPage;
         //assertTrue(true);
 
-        assetsPage.verifyAsset(assetData, createdAssetID);
+        assetsPage.setCountryFilter("SWE", false);
 
         int deletedContacts = DBUtils.DeleteContactsBasedOnAssetID(createdAssetID);
         int deletedAssets = DBUtils.DeleteAssetBasedOnCFR(assetData.cfr);

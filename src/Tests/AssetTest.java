@@ -7,6 +7,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.util.concurrent.TimeUnit;
+
+import static Utilities.Constants.sleepBeforeTestMethod;
+
 abstract class AssetTest extends TestBase {
 
 
@@ -28,6 +32,19 @@ abstract class AssetTest extends TestBase {
         testPage = oldAssetPage.clickMenuItemRealtime();
 
         RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
+
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+/*        try {
+            driver.manage().timeouts().wait(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        // TODO remove hard coded timeouts
+        try {
+            TimeUnit.MILLISECONDS.sleep(sleepBeforeTestMethod);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         testPage = realTimeMapPage.clickMenuItemAssets();
 
     }

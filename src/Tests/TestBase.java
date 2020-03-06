@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,13 +31,16 @@ public abstract class TestBase {
             System.setProperty("webdriver.chrome.driver","C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2019.3.3\\lib\\selenium\\chromedriver.exe");
 
             //Initiating your chromedriver
-            driver = new LazyWebDriver(new ChromeDriver(), 20);
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--window-position=(-200),0 --secondary-display-layout=(l, -100)");
+            driver = new LazyWebDriver(new ChromeDriver(chromeOptions), 10);
 
             //Applied wait time
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
             //maximize window
             //driver.manage().window().maximize();
+
         }
         protected void after() {
             // Setup logic that used to be in @AfterClass
@@ -73,8 +77,10 @@ public abstract class TestBase {
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
         System.out.println("TB AfterEach");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         testPage.Logout();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     @AfterAll
