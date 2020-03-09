@@ -1,24 +1,16 @@
 package PageObjects;
 
-import DataModels.AssetData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class AssetsPage extends PageBase {
 
     public AssetsPage(WebDriver driver) {
         super(driver);
-
-        // Check that we're on the right page.
-/*        if (!"".equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
-            throw new IllegalStateException("This is not the login page");
-        }*/
     }
 
     By countryFieldLocator = By.cssSelector("mat-form-field");
-    By countryRowLocator; //= By.cssSelector("#mat-option-" + countryCheckBox + " .mat-option-text");
+    By countryRowLocator;
     By bodyLocator = By.cssSelector("body");
 
 
@@ -106,8 +98,6 @@ public class AssetsPage extends PageBase {
         self.assertEqual(contactTypeValue[vesselNumber], allContactsElements[7].text)
         time.sleep(defaultSleepTimeValue * 10)
 */
-
-    // driver.findElement(menuItemAssetsLocator).click();
 
 /*    def click_on_flag_state_in_list_tab(self, flagState):
             # Set wait time for web driver

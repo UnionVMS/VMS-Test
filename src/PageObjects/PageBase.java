@@ -17,12 +17,8 @@ public abstract class PageBase {
     protected final WebDriver driver;
 
     protected PageBase(WebDriver driver) {
-
         this.driver = driver;
-/*        new WebDriverWait(driver, pageLoadTimeout).until(
-                webDriver -> ((JavascriptExecutor)
-                        webDriver).executeScript("return document.readyState").equals("complete"));
-*/    }
+    }
 
     By logoutLocator = By.linkText("Logout");
     By bodyLocator = By.cssSelector("body");
@@ -69,9 +65,6 @@ public abstract class PageBase {
     }
 
     public void Logout() {
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        //WebDriverWait wait = new WebDriverWait(driver,30);
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(logoutLocator));
         driver.findElement(bodyLocator).click();
         driver.findElement(logoutLocator).click();
     }

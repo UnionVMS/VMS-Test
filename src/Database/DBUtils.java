@@ -53,18 +53,4 @@ public class DBUtils {
         }
         return result;
     }
-
-/*
-
-        while (rs.next())
-        {
-            System.out.print("Got it! ");
-            System.out.println(rs.getString("cfr"));
-        }
-        rs.close();
-        st.close();
-    } catch (SQLException | ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-*/
 }

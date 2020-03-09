@@ -1,13 +1,8 @@
 package DataModels;
 
-import DataModels.DataConstraints.Cfr;
-import DataModels.DataConstraints.Imo;
-import DataModels.DataConstraints.Ircs;
-import DataModels.DataConstraints.Mmsi;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 
@@ -36,10 +31,6 @@ public class ContactData extends DataModelBase{
 
     @JsonProperty("type")
     String type;
-
-    public void randomizeData() {
-        // Not needed
-    }
 
     public static ContactData get(String filename) throws IOException {
         String fullFileName = "src/Data/" + filename + ".json";

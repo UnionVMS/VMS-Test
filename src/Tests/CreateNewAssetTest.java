@@ -10,29 +10,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.io.IOException;
 
-//@RunWith(Parameterized.class)
-//@ExtendWith(SpringExtension.class)
 public class CreateNewAssetTest extends AssetTest {
 
     private AssetData assetData;
 
     public CreateNewAssetTest() {
-       // super.setUpBeforeTestClass();
     }
-
-/*    @Parameters
-    public static String[] assetFiles() {
-        return new String[] { "Asset_01", "Asset_02", "Asset_03" };
-    }*/
-
-/*    @BeforeEach
-    public void setUpBeforeTestMethod() {
-        System.out.println("CNAT BeforeEach");
-        // initialize testPage
-        // login to the app, if necessary
-        super.setUpBeforeTestMethod();
-
-    }*/
 
     @ParameterizedTest
     @ValueSource(strings = { "Asset_01", "Asset_02", "Asset_03", "Asset_03", "Asset_03", "Asset_03", "Asset_03", "Asset_03", "Asset_03"})
