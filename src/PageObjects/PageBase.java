@@ -25,6 +25,7 @@ public abstract class PageBase {
 */    }
 
     By logoutLocator = By.linkText("Logout");
+    By bodyLocator = By.cssSelector("body");
 
     public String GetTitle() {
         return driver.getTitle();
@@ -71,6 +72,7 @@ public abstract class PageBase {
         //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //WebDriverWait wait = new WebDriverWait(driver,30);
         //wait.until(ExpectedConditions.visibilityOfElementLocated(logoutLocator));
+        driver.findElement(bodyLocator).click();
         driver.findElement(logoutLocator).click();
     }
 }

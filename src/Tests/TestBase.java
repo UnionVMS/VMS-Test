@@ -14,6 +14,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
+import static Utilities.Constants.lazyWebTimeout;
+
 
 public abstract class TestBase {
 
@@ -33,10 +35,10 @@ public abstract class TestBase {
             //Initiating your chromedriver
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--window-position=(-200),0 --secondary-display-layout=(l, -100)");
-            driver = new LazyWebDriver(new ChromeDriver(chromeOptions), 10);
+            driver = new LazyWebDriver(new ChromeDriver(chromeOptions), lazyWebTimeout);
 
             //Applied wait time
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
             //maximize window
             //driver.manage().window().maximize();
@@ -51,7 +53,7 @@ public abstract class TestBase {
 
     @BeforeAll
     public static void setUpBeforeTestClass(){
-        System.out.println("TB BeforeAll");
+        //System.out.println("TB BeforeAll");
 
         TestResources res = new TestResources();
         res.before();
@@ -61,12 +63,12 @@ public abstract class TestBase {
     public void setUpBeforeTestMethod() {
         // initialize testPage
         // login to the app, if necessary
-        System.out.println("TB BeforeEach");
+        //System.out.println("TB BeforeEach");
 
         OldLoginPage lp = new OldLoginPage(driver);
         driver.get(Constants.loginURL);
         //Applied wait time
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         lp.typeUsername(Constants.username);
         lp.typePassword(Constants.password);
         testPage = lp.submitLogin();
@@ -76,16 +78,17 @@ public abstract class TestBase {
     @AfterEach
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
-        System.out.println("TB AfterEach");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       // System.out.println("TB AfterEach");
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         testPage.Logout();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
 
     @AfterAll
     public static void tearDownAfterTestClass() {
-        System.out.println("TB AfterAll");
+       //System.out.println("TB AfterAll");
 
         TestResources res = new TestResources();
         res.after();

@@ -1,6 +1,7 @@
 package Tests;
 
 import PageObjects.OldAssetPage;
+import PageObjects.OldReportsPage;
 import PageObjects.RealTimeMapPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -24,12 +25,12 @@ abstract class AssetTest extends TestBase {
     @BeforeEach
     public void setUpBeforeTestMethod() {
         // do the parent actions, then add some post-specific actions
-        System.out.println("AT BeforeEach");
+        //System.out.println("AT BeforeEach");
         super.setUpBeforeTestMethod();
 
-        OldAssetPage oldAssetPage = (OldAssetPage) testPage;
+        OldReportsPage oldReportsPage = (OldReportsPage) testPage;
 
-        testPage = oldAssetPage.clickMenuItemRealtime();
+        testPage = oldReportsPage.clickMenuItemRealtime();
 
         RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
 
@@ -52,7 +53,7 @@ abstract class AssetTest extends TestBase {
     @AfterEach
     public void tearDownAfterTestMethod() {
         // logout of the app, if necessary
-        System.out.println("AT AfterEach");
+        //System.out.println("AT AfterEach");
         super.tearDownAfterTestMethod();
 
     }

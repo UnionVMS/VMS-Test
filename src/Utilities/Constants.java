@@ -16,6 +16,7 @@ public class Constants {
 
     public static int pageLoadTimeout = 20;
     public static int sleepBeforeTestMethod = 500;
+    public static int lazyWebTimeout = 20;
     public enum InvocationType { GET, PUT, DELETE, POST };
     public static String APIURLPrefix = "http://";
     public static String APIURLPort = ":28080";

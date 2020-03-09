@@ -24,17 +24,17 @@ public class OldLoginPage extends PageBase {
     By passwordLocator = By.id("password");
     By loginButtonLocator = By.xpath("//*[@id='content']/div[1]/div[3]/div/div[2]/div[3]/div[2]/form/div[3]/div/button");
 
-    public String GetTitle() {
-        return super.GetTitle();
-    }
+    //public String GetTitle() {
+    //    return super.GetTitle();
+    //}
 
     // The login page allows the user to type their username into the username field
     public OldLoginPage typeUsername(String username) {
         // This is the only place that "knows" how to enter a username
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+/*        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameLocator));
-        driver.findElement(usernameLocator).sendKeys(username);
+*/        driver.findElement(usernameLocator).sendKeys(username);
 
         // Return the current page object as this action doesn't navigate to a page represented by another PageObject
         return this;
@@ -43,28 +43,28 @@ public class OldLoginPage extends PageBase {
     // The login page allows the user to type their password into the password field
     public OldLoginPage typePassword(String password) {
         // This is the only place that "knows" how to enter a password
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+/*        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordLocator));
-        driver.findElement(passwordLocator).sendKeys(password);
+*/        driver.findElement(passwordLocator).sendKeys(password);
 
         // Return the current page object as this action doesn't navigate to a page represented by another PageObject
         return this;
     }
 
     // The login page allows the user to submit the login form
-    public OldAssetPage submitLogin() {
+    public OldReportsPage submitLogin() {
         // This is the only place that submits the login form and expects the destination to be the home page.
         // A separate method should be created for the instance of clicking login whilst expecting a login failure.
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+/*        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginButtonLocator));
-        driver.findElement(loginButtonLocator).click();
+*/        driver.findElement(loginButtonLocator).click();
 
         // Return a new page object representing the destination. Should the login page ever
         // go somewhere else (for example, a legal disclaimer) then changing the method signature
         // for this method will mean that all tests that rely on this behaviour won't compile.
-        return new OldAssetPage(driver);
+        return new OldReportsPage(driver);
     }
 
     // The login page allows the user to submit the login form knowing that an invalid username and / or password were entered
@@ -79,7 +79,7 @@ public class OldLoginPage extends PageBase {
 
     // Conceptually, the login page offers the user the service of being able to "log into"
     // the application using a user name and password.
-    public OldAssetPage loginAs(String username, String password) {
+    public OldReportsPage loginAs(String username, String password) {
         // The PageObject methods that enter username, password & submit login have already defined and should not be repeated here.
         typeUsername(username);
         typePassword(password);

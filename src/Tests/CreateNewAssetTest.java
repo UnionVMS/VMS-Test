@@ -35,7 +35,7 @@ public class CreateNewAssetTest extends AssetTest {
     }*/
 
     @ParameterizedTest
-    @ValueSource(strings = { "Asset_01", "Asset_02", "Asset_03", "Asset_03", "Asset_03", "Asset_03"})
+    @ValueSource(strings = { "Asset_01", "Asset_02", "Asset_03", "Asset_03", "Asset_03", "Asset_03", "Asset_03", "Asset_03", "Asset_03"})
     public void CreateNewAsset (String dataFile) throws IOException {
 
         assetData = AssetData.get(dataFile);

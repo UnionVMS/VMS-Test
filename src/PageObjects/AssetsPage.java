@@ -24,7 +24,7 @@ public class AssetsPage extends PageBase {
 
         public AssetsPage setCountryFilter(String country, boolean countryEnabled) {
 
-            countryRowLocator = By.cssSelector("#mat-option-" + country + " .mat-option-text");
+            countryRowLocator = By.cssSelector("#mat-option-" + country);
             setValueInDropdown(countryFieldLocator, countryRowLocator, bodyLocator, countryEnabled);
         return this;
     }

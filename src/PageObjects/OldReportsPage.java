@@ -1,15 +1,10 @@
 package PageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+public class OldReportsPage extends OldGUIBase {
 
-public class RealTimeMapPage extends PageBase {
-
-    public RealTimeMapPage(WebDriver driver) {
+    public OldReportsPage(WebDriver driver) {
         super(driver);
 
         // Check that we're on the right page.
@@ -21,25 +16,20 @@ public class RealTimeMapPage extends PageBase {
 
     // The login page contains several HTML elements that will be represented as WebElements.
     // The locators for these elements should only be defined once.
-//    By menuItemAssetsLocator = By.linkText("Assets");
-    By menuItemAssetsLocator = By.cssSelector("ul.navbar-nav:nth-child(2) > li:nth-child(1) > a:nth-child(1)");
-
+//    By menuItemRealtimeLocator = By.id("uvms-header-menu-item-realtime");
 
     // The login page allows the user to submit the login form
-    public AssetsPage clickMenuItemAssets() {
+/*    public RealTimeMapPage clickMenuItemRealtime() {
         // This is the only place that submits the login form and expects the destination to be the home page.
         // A separate method should be created for the instance of clicking login whilst expecting a login failure.
-//        WebDriverWait wait = new WebDriverWait(driver,30);
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(menuItemAssetsLocator));
-
-//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-        driver.findElement(menuItemAssetsLocator).click();
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(menuItemRealtimeLocator));
+        driver.findElement(menuItemRealtimeLocator).click();
 
         // Return a new page object representing the destination. Should the login page ever
         // go somewhere else (for example, a legal disclaimer) then changing the method signature
         // for this method will mean that all tests that rely on this behaviour won't compile.
-        return new AssetsPage(driver);
+        return new RealTimeMapPage(driver);
     }
-
+*/
 }
