@@ -1,5 +1,6 @@
 package Tests;
 
+import PageActions.Navigate;
 import PageObjects.OldReportsPage;
 import PageObjects.RealTimeMapPage;
 import org.junit.jupiter.api.AfterEach;
@@ -15,20 +16,9 @@ abstract class AssetTest extends TestBase {
     @BeforeEach
     public void setUpBeforeTestMethod() {
         super.setUpBeforeTestMethod();
+        Navigate navigate = new Navigate(driver);
 
-        OldReportsPage oldReportsPage = (OldReportsPage) testPage;
-
-        testPage = oldReportsPage.clickMenuItemRealtime();
-
-        RealTimeMapPage realTimeMapPage = (RealTimeMapPage) testPage;
-
-        // TODO remove hard coded timeouts
-        try {
-            TimeUnit.MILLISECONDS.sleep(sleepBeforeTestMethod);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        testPage = realTimeMapPage.clickMenuItemAssets();
+        testPage =  navigate.navigateTo((RealTimeMapPage)testPage, "assets");
 
     }
 

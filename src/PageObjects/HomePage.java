@@ -1,5 +1,6 @@
 package PageObjects;
 
+import PageObjects.PageComponents.AssetSearch;
 import PageObjects.PageComponents.NavigationBar;
 import PageObjects.PageComponents.TopLeftBar;
 import PageObjects.PageComponents.TopRightBar;
@@ -8,13 +9,13 @@ import PageObjects.PageInterfaces.ITopLeftBar;
 import PageObjects.PageInterfaces.ITopRightBar;
 import org.openqa.selenium.WebDriver;
 
-public class RealTimeMapPage extends PageBase implements INavigation, ITopRightBar, ITopLeftBar {
+public class HomePage extends PageBase implements INavigation, ITopLeftBar, ITopRightBar {
 
     public NavigationBar navigationBar = new NavigationBar(driver);
     public TopLeftBar topLeftBar = new TopLeftBar(driver);
     public TopRightBar topRightBar = new TopRightBar(driver);
 
-    public RealTimeMapPage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 

@@ -8,13 +8,13 @@ import PageObjects.PageInterfaces.ITopLeftBar;
 import PageObjects.PageInterfaces.ITopRightBar;
 import org.openqa.selenium.WebDriver;
 
-public class RealTimeMapPage extends PageBase implements INavigation, ITopRightBar, ITopLeftBar {
+public class ReportsPage extends PageBase implements INavigation, ITopRightBar, ITopLeftBar {
 
     public NavigationBar navigationBar = new NavigationBar(driver);
     public TopLeftBar topLeftBar = new TopLeftBar(driver);
     public TopRightBar topRightBar = new TopRightBar(driver);
 
-    public RealTimeMapPage(WebDriver driver) {
+    public ReportsPage(WebDriver driver) {
         super(driver);
     }
 

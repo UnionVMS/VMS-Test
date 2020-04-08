@@ -1,6 +1,7 @@
 package Tests;
 
-import PageObjects.OldLoginPage;
+import PageActions.Login;
+import PageObjects.LoginPage;
 import PageObjects.PageBase;
 import Utilities.Constants;
 import Utilities.LazyWebDriver;
@@ -11,7 +12,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import static Utilities.Constants.lazyWebTimeout;
+
+import static Utilities.Constants.*;
 
 
 public abstract class TestBase {
@@ -46,12 +48,11 @@ public abstract class TestBase {
 
     @BeforeEach
     public void setUpBeforeTestMethod() {
-        OldLoginPage lp = new OldLoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         driver.get(Constants.loginURL);
-        lp.typeUsername(Constants.username);
-        lp.typePassword(Constants.password);
-        testPage = lp.submitLogin();
+        Login login = new Login(driver);
 
+        testPage = login.loginWith(loginPage.login, username, password);
     }
 
     @AfterEach

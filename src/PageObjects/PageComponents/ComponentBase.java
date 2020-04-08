@@ -1,15 +1,16 @@
-package PageObjects;
+package PageObjects.PageComponents;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public abstract class PageBase {
-    public final WebDriver driver;
+public abstract class ComponentBase {
+    protected final WebDriver driver;
 
-    protected PageBase(WebDriver driver) {
+    protected ComponentBase(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -42,6 +43,19 @@ public abstract class PageBase {
             e.printStackTrace();
         }
         return uri != null ? uri.getPath() : "";
+    }
+
+    protected void setValueInDropdown(By fieldLocator, By rowLocator, By bodyLocator, boolean enabled) {
+
+        driver.findElement(fieldLocator).click();
+
+        WebElement countryRow = driver.findElement(rowLocator);
+        if (countryRow.getAttribute("aria-selected").equals(String.valueOf(!enabled)))
+        {
+            countryRow.click();
+        }
+
+        driver.findElement(bodyLocator).click();
     }
 
     public void Logout() {
