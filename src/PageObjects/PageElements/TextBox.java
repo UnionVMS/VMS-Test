@@ -8,10 +8,12 @@ import org.openqa.selenium.WebElement;
 public class TextBox {
     private By elementLocator;
     private WebDriver driver;
+    private String defaultValue;
 
-    public TextBox(WebDriver driver, By elementLocator) {
+    public TextBox(WebDriver driver, By elementLocator, String defaultValue) {
         this.elementLocator = elementLocator;
         this.driver = driver;
+        this.defaultValue = defaultValue;
     }
 
     public void type(String inputText) {
@@ -20,7 +22,26 @@ public class TextBox {
         we.sendKeys(inputText);
     }
 
-    public String getText() {
-        return driver.findElement(elementLocator).getText();
+    public String getValue() {
+        return driver.findElement(elementLocator).getAttribute("value");
+    }
+
+    public void resetToDefault() {
+        type(defaultValue);
+    }
+
+    public boolean isValid() {
+        boolean isValid;
+        try {
+            isValid = !(driver.findElement(elementLocator).getAttribute("aria-invalid").equals("true"));
+        } catch (Exception e) {
+            return true;
+        }
+        return isValid;
+    }
+
+
+    public String getDefaultValue() {
+        return defaultValue;
     }
 }

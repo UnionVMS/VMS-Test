@@ -1,4 +1,4 @@
-package Tests;
+package Tests.AssetTests;
 
 import API.APIUtils;
 import API.AssetModule.AssetService;
@@ -16,12 +16,16 @@ import PageObjects.RealTimeMapPage;
 import PageObjects.SettingsPage;
 import PageResults.SettingsResult;
 import PageResults.SystemInfo;
+import Tests.AssetTests.AssetTest;
+import Utilities.Constants;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static Utilities.Constants.MapVisibilityOptionsEnum.*;
 
 public class CreateNewAssetTest extends AssetTest {
 
@@ -54,34 +58,36 @@ public class CreateNewAssetTest extends AssetTest {
 
         Map<String, Boolean> countries = new HashMap<>();
         countries.put("SWE", Boolean.TRUE);
-        countries.put("SVK", Boolean.TRUE);
+        countries.put("DNK", Boolean.TRUE);
 
 
+/*
         Map<String, String> searchArgs = new HashMap<>();
         searchArgs.put("externalmarkings", "AbelExternal");
         searchArgs.put("name", "AbelName");
         searchArgs.put("cfr", "AbelCFR");
         searchArgs.put("ircs", "AbelIRCS");
+*/
 
-        search.searchAssets(assetsPage.assetSearch, countries, searchArgs);
+        search.searchAssets(assetsPage.assetSearch, countries, "tall", "countries");
 
         String sysVersion = systemInfo.getSystemVersion((AssetsPage) testPage);
         System.out.println(sysVersion);
 
-        testPage = navigate.navigateTo((AssetsPage) testPage, "mysettings");
+        testPage = navigate.navigateTo((AssetsPage) testPage, Constants.MenuItem.MYSETTINGS);
 
         SettingsPage settingsPage = (SettingsPage) testPage;
-        Map<String, Boolean> visibilitySettings = new HashMap<>();
-        visibilitySettings.put("showflags", Boolean.FALSE);
-        visibilitySettings.put("showtracks", Boolean.FALSE);
-        visibilitySettings.put("shownames", Boolean.TRUE);
-        visibilitySettings.put("showspeeds", Boolean.TRUE);
-        visibilitySettings.put("showforecasts", Boolean.TRUE);
+        Map<Constants.MapVisibilityOptionsEnum, Boolean> visibilitySettings = new HashMap<>();
+        visibilitySettings.put(SHOWFLAGS, Boolean.FALSE);
+        visibilitySettings.put(SHOWTRACKS, Boolean.FALSE);
+        visibilitySettings.put(SHOWNAMES, Boolean.TRUE);
+        visibilitySettings.put(SHOWSPEEDS, Boolean.TRUE);
+        visibilitySettings.put(SHOWFORECASTS, Boolean.TRUE);
 
         settings.setVisibility(settingsPage.mapVisibilityOptions, visibilitySettings);
         settings.setMapStartPosition(settingsPage.mapStartPositionOptions, "5", "58.66666", "13.13131313");
         settings.setTracksAndForecast(settingsPage.tracksAndForecastsOptions, "3 hours", "60");
-        settings.setShipOptions(settingsPage.shipOptions, ShipOptions.ShipColourLogic.SIZE, "Nautical mile");
+        settings.setShipOptions(settingsPage.shipOptions, Constants.ShipColourLogic.SIZE, "Nautical mile");
         settings.submit(settingsPage.settingsSubmitBar);
         settingsResult.getSubmitResult(settingsPage.topNotificationBar);
         
@@ -106,7 +112,7 @@ public class CreateNewAssetTest extends AssetTest {
 
         testPage = navigate.navigateToHome((SettingsPage) testPage);
 
-        testPage = navigate.navigateTo((HomePage) testPage, "realtimemap");
+        testPage = navigate.navigateTo((HomePage) testPage, Constants.MenuItem.REALTIMEMAP);
 //        testPage = navigate.navigateToAdmin((RealTimeMapPage) testPage);
 
         login.logout((RealTimeMapPage) testPage);

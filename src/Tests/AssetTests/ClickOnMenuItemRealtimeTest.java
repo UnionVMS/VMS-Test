@@ -1,7 +1,8 @@
-package Tests;
+package Tests.AssetTests;
 
 import PageObjects.OldAssetPage;
 import PageObjects.RealTimeMapPage;
+import Tests.AssetTests.AssetTest;
 import org.junit.jupiter.api.Test;
 
 public class ClickOnMenuItemRealtimeTest extends AssetTest {

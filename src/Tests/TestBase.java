@@ -26,8 +26,7 @@ public abstract class TestBase {
         protected void before() {
             // Setup logic that used to be in @BeforeClass
             //setting the driver executable
-            System.setProperty("webdriver.chrome.driver","C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2019.3.3\\lib\\selenium\\chromedriver.exe");
-
+            System.setProperty("webdriver.chrome.driver","C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2019.3.4\\lib\\selenium\\chromedriver.exe");
             //Initiating your chromedriver
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--window-position=(-200),0 --secondary-display-layout=(l, -100)");

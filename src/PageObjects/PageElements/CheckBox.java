@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 public class CheckBox {
     private By elementLocator;
     private WebDriver driver;
+    private boolean defaultValue;
 
-    public CheckBox(WebDriver driver, By elementLocator) {
+    public CheckBox(WebDriver driver, By elementLocator, boolean defaultValue) {
         this.elementLocator = elementLocator;
         this.driver = driver;
+        this.defaultValue = defaultValue;
     }
 
     public void click() {
@@ -19,6 +21,7 @@ public class CheckBox {
     public boolean isEnabled() {
         return driver.findElement(elementLocator).getAttribute("class").contains("mat-checked");
     }
+
     public String getText() {
         return driver.findElement(elementLocator).getText();
     }
@@ -27,5 +30,12 @@ public class CheckBox {
         if (!(isEnabled() == state)) {
             click();
         }
+    }
+    public void resetToDefault() {
+        setStatus(defaultValue);
+    }
+
+    public boolean getDefaultValue() {
+        return defaultValue;
     }
 }

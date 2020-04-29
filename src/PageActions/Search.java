@@ -18,7 +18,7 @@ public class Search {
     private void setCountries(AssetSearch assetSearchComponent, Map<String, Boolean> countriesEnabled) {
         countriesEnabled.forEach( (country,countryEnabled) -> {
             By countryRowLocator = By.cssSelector("#mat-option-" + country);
-            assetSearchComponent.country.setValueInMultiDropdown(countryRowLocator, countryEnabled);
+            assetSearchComponent.countrySelector.setValueInMultiDropdown(countryRowLocator, countryEnabled);
         });
     }
 
@@ -26,7 +26,7 @@ public class Search {
         assetSearchComponent.search.click();
     }
 
-    private void setSearchArgs(AssetSearch assetSearchComponent, Map<String, String> searchArgs) {
+/*    private void setSearchArgs(AssetSearch assetSearchComponent, Map<String, String> searchArgs) {
         searchArgs.forEach( (key,value) -> {
             switch(key.toLowerCase()) {
                 case "externalmarkings": {
@@ -48,7 +48,11 @@ public class Search {
                 default:
             }
         });
-    }
+    }*/
+
+/*    private void setSearchText(AssetSearch assetSearchComponent, String searchText) {
+        assetSearchComponent.searchText.type(searchText);
+    }*/
 
 /*    public void searchAssets(AssetSearch assetSearchComponent,
                              Map<String, Boolean> countriesEnabled,
@@ -66,9 +70,31 @@ public class Search {
 
     public void searchAssets(AssetSearch assetSearchComponent,
                              Map<String, Boolean> countriesEnabled,
-                             Map<String, String> searchArgs) {
-        setCountries(assetSearchComponent, countriesEnabled);
-        setSearchArgs(assetSearchComponent, searchArgs);
+                             String searchText,
+                             String filterOption) {
+        assetSearchComponent.searchText.type(searchText);
+        switch(filterOption.toLowerCase()) {
+            case "swe": {
+                assetSearchComponent.swedishAssets.click();
+                break;
+
+            }
+            case "vms": {
+                assetSearchComponent.vmsAssets.click();
+                break;
+
+            }
+            case "countries": {
+                if (countriesEnabled.size() > 0)
+                {
+                    setCountries(assetSearchComponent, countriesEnabled);
+                }
+                break;
+            }
+            default:
+        }
+
+        submit(assetSearchComponent);
     }
 }
 

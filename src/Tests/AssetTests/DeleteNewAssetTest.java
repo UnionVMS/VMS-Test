@@ -1,6 +1,6 @@
-package Tests;
+package Tests.AssetTests;
 
-import Tests.AssetTest;
+import Tests.AssetTests.AssetTest;
 
 class DeleteNewAssetTest extends AssetTest {
 

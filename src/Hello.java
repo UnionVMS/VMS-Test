@@ -1,5 +1,5 @@
-import Tests.ClickOnMenuItemAssetsTest;
-import Tests.CreateNewAssetTest;
+import Tests.AssetTests.ClickOnMenuItemAssetsTest;
+import Tests.AssetTests.CreateNewAssetTest;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;

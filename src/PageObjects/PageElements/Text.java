@@ -7,6 +7,7 @@ public class Text {
     private By elementLocator;
     private WebDriver driver;
 
+
     public Text(WebDriver driver, By elementLocator) {
         this.elementLocator = elementLocator;
         this.driver = driver;
@@ -15,4 +16,6 @@ public class Text {
     public String getText() {
         return driver.findElement(elementLocator).getText();
     }
+
+
 }

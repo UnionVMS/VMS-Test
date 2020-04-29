@@ -9,10 +9,12 @@ public class SelectElement {
     private By elementLocator;
     private WebDriver driver;
     private By bodyLocator = By.cssSelector("body");
+    private String defaultValue;
 
-    public SelectElement(WebDriver driver, By elementLocator) {
+    public SelectElement(WebDriver driver, By elementLocator, String defaultValue) {
         this.elementLocator = elementLocator;
         this.driver = driver;
+        this.defaultValue = defaultValue;
     }
 
     public void setValueInMultiDropdown(By rowLocator, boolean enabled) {
@@ -47,6 +49,18 @@ public class SelectElement {
     {
         driver.findElement(By.id("mat-select-5")).click();
         driver.findElement(By.xpath("//mat-option/span[contains(.,'" + countryName + "')]")).click();
+    }
+
+    public void resetToDefault() {
+        setValueInDropdown(defaultValue);
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public String getValue() {
+        return driver.findElement(elementLocator).getText();
     }
 
 /*    public void click() {

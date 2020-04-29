@@ -17,7 +17,9 @@ public class RadioButton {
     }
 
     public boolean isSelected() {
-        return driver.findElement(elementLocator).isSelected();
+//        return driver.findElement(elementLocator).isSelected();
+        return driver.findElement(elementLocator).getAttribute("class").contains("mat-radio-checked");
+
     }
     public String getText() {
         return driver.findElement(elementLocator).getText();

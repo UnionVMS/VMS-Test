@@ -1,8 +1,10 @@
-package Tests;
+package Tests.AssetTests;
 
 import PageActions.Navigate;
 import PageObjects.OldReportsPage;
 import PageObjects.RealTimeMapPage;
+import Tests.TestBase;
+import Utilities.Constants;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -18,7 +20,7 @@ abstract class AssetTest extends TestBase {
         super.setUpBeforeTestMethod();
         Navigate navigate = new Navigate(driver);
 
-        testPage =  navigate.navigateTo((RealTimeMapPage)testPage, "assets");
+        testPage =  navigate.navigateTo((RealTimeMapPage)testPage, Constants.MenuItem.ASSETS);
 
     }
 
