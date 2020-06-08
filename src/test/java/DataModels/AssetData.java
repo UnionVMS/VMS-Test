@@ -69,7 +69,7 @@ public class AssetData extends DataModelBase{
     }
 
     public static AssetData get(String filename) throws IOException {
-        String fullFileName = "src/Data/" + filename + ".json";
+        String fullFileName = "src/test/resources/" + filename + ".json";
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(new File(fullFileName), AssetData.class);
     }

@@ -33,7 +33,7 @@ public class ContactData extends DataModelBase{
     String type;
 
     public static ContactData get(String filename) throws IOException {
-        String fullFileName = "src/Data/" + filename + ".json";
+        String fullFileName = "src/test/resources/" + filename + ".json";
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(new File(fullFileName), ContactData.class);
     }
