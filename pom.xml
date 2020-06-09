@@ -6,6 +6,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Test suite for VMS frontend</description>
 
+    <properties>
+        <ci>false</ci>
+    </properties>
+
 	<dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -41,6 +45,7 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20200518</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>

@@ -32,7 +32,11 @@ public abstract class TestBase {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
             //Initiating your chromedriver
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--window-position=(-200),0 --secondary-display-layout=(l, -100)");
+            if (System.getProperty("ci", "false").equals("true")) {
+                chromeOptions.setHeadless(true);
+            } else {
+                chromeOptions.addArguments("--window-position=(-200),0 --secondary-display-layout=(l, -100)");
+            }
             driver = new LazyWebDriver(new ChromeDriver(chromeOptions), lazyWebTimeout);
 
         }
