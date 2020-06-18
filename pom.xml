@@ -12,6 +12,19 @@
 
 	<dependencies>
         <dependency>
+            <groupId>eu.europa.ec.fisheries.uvms.docker</groupId>
+            <artifactId>uvms-unionvms-test</artifactId>
+            <version>3.44.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>eu.europa.ec.fisheries.uvms.docker</groupId>
+            <artifactId>uvms-unionvms-test</artifactId>
+            <version>3.44.1</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
