@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.europa.ec.fisheries.uvms.movement:movement-model:5.5.10-UVMS">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/movement/movement-model/5.5.10-UVMS/movement-model-5.5.10-UVMS.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/movement/movement-model/5.5.10-UVMS/movement-model-5.5.10-UVMS-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/movement/movement-model/5.5.10-UVMS/movement-model-5.5.10-UVMS-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

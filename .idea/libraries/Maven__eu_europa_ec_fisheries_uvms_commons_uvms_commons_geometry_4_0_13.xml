@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.europa.ec.fisheries.uvms.commons:uvms-commons-geometry:4.0.13">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/commons/uvms-commons-geometry/4.0.13/uvms-commons-geometry-4.0.13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/commons/uvms-commons-geometry/4.0.13/uvms-commons-geometry-4.0.13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/commons/uvms-commons-geometry/4.0.13/uvms-commons-geometry-4.0.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.europa.ec.fisheries.uvms.reporting:reporting-service:1.1.25-UVMS">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/reporting/reporting-service/1.1.25-UVMS/reporting-service-1.1.25-UVMS.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/reporting/reporting-service/1.1.25-UVMS/reporting-service-1.1.25-UVMS-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/reporting/reporting-service/1.1.25-UVMS/reporting-service-1.1.25-UVMS-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
