@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.europa.ec.fisheries.uvms.exchange:exchange-model:5.2.12-UVMS">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/exchange/exchange-model/5.2.12-UVMS/exchange-model-5.2.12-UVMS.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/exchange/exchange-model/5.2.12-UVMS/exchange-model-5.2.12-UVMS-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/exchange/exchange-model/5.2.12-UVMS/exchange-model-5.2.12-UVMS-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

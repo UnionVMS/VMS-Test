@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.europa.ec.fisheries.uvms.docker:uvms-unionvms-test:test-jar:tests:3.44.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/docker/uvms-unionvms-test/3.44.1/uvms-unionvms-test-3.44.1-tests.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/docker/uvms-unionvms-test/3.44.1/uvms-unionvms-test-3.44.1-test-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/docker/uvms-unionvms-test/3.44.1/uvms-unionvms-test-3.44.1-test-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.bull.javamelody:javamelody-core:1.72.0.SE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/bull/javamelody/javamelody-core/1.72.0.SE/javamelody-core-1.72.0.SE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/bull/javamelody/javamelody-core/1.72.0.SE/javamelody-core-1.72.0.SE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/bull/javamelody/javamelody-core/1.72.0.SE/javamelody-core-1.72.0.SE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

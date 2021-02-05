@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.europa.ec.fisheries.uvms.spatialSwe:spatial-model:2.0.5-UVMS">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/spatialSwe/spatial-model/2.0.5-UVMS/spatial-model-2.0.5-UVMS.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/spatialSwe/spatial-model/2.0.5-UVMS/spatial-model-2.0.5-UVMS-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/europa/ec/fisheries/uvms/spatialSwe/spatial-model/2.0.5-UVMS/spatial-model-2.0.5-UVMS-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
