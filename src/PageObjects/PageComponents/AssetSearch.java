@@ -15,7 +15,7 @@ public class AssetSearch extends ComponentBase {
     public TextBox searchText = new TextBox(driver, By.cssSelector("#mat-input-4"), "tallona");
     public RadioButton swedishAssets = new RadioButton(driver, By.cssSelector("#mat-radio-2"));
     public RadioButton vmsAssets = new RadioButton(driver, By.cssSelector("#mat-radio-3"));
-    public RadioButton country = new RadioButton(driver, By.cssSelector("#mat-radio-4"));
+    //public RadioButton country = new RadioButton(driver, By.cssSelector("#mat-radio-4"));
     public SelectElement countrySelector = new SelectElement(driver, By.cssSelector("#mat-select-1"), "SWE");
     public Button search = new Button(driver, By.cssSelector("button.mat-raised-button:nth-child(1)"));
 
