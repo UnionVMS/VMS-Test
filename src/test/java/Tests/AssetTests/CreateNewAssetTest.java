@@ -8,15 +8,13 @@ import Database.DBUtils;
 import PageActions.Login;
 import PageActions.Navigate;
 import PageActions.Search;
-import PageActions.Settings;
+import PageActions.SettingsActions;
 import PageObjects.AssetsPage;
 import PageObjects.HomePage;
-import PageObjects.PageComponents.ShipOptions;
 import PageObjects.RealTimeMapPage;
 import PageObjects.SettingsPage;
 import PageResults.SettingsResult;
 import PageResults.SystemInfo;
-import Tests.AssetTests.AssetTest;
 import Utilities.Constants;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -51,7 +49,7 @@ public class CreateNewAssetTest extends AssetTest {
 
         Search search = new Search();
         Navigate navigate = new Navigate(driver);
-        Settings settings = new Settings();
+        SettingsActions settingsActions = new SettingsActions();
         SettingsResult settingsResult = new SettingsResult();
         Login login = new Login(driver);
         SystemInfo systemInfo = new SystemInfo(driver);
@@ -84,11 +82,11 @@ public class CreateNewAssetTest extends AssetTest {
         visibilitySettings.put(SHOWSPEEDS, Boolean.TRUE);
         visibilitySettings.put(SHOWFORECASTS, Boolean.TRUE);
 
-        settings.setVisibility(settingsPage.mapVisibilityOptions, visibilitySettings);
-        settings.setMapStartPosition(settingsPage.mapStartPositionOptions, "5", "58.66666", "13.13131313");
-        settings.setTracksAndForecast(settingsPage.tracksAndForecastsOptions, "3 hours", "60");
-        settings.setShipOptions(settingsPage.shipOptions, Constants.ShipColourLogic.SIZE, "Nautical mile");
-        settings.submit(settingsPage.settingsSubmitBar);
+        settingsActions.setVisibility(settingsPage.mapVisibilityOptions, visibilitySettings);
+        settingsActions.setMapStartPosition(settingsPage.mapStartPositionOptions, "5", "58.66666", "13.13131313");
+        settingsActions.setTracksAndForecast(settingsPage.tracksAndForecastsOptions, "3 hours", "60");
+        settingsActions.setShipOptions(settingsPage.shipOptions, Constants.ShipColourLogic.SIZE, "Nautical mile");
+        settingsActions.submit(settingsPage.settingsSubmitBar);
         settingsResult.getSubmitResult(settingsPage.topNotificationBar);
         
         /*

@@ -30,6 +30,7 @@ public class Constants {
     public enum InvocationType { GET, PUT, DELETE, POST }
     public enum MenuItem { ASSETS, MYSETTINGS, REALTIMEMAP, REPORTSMAP }
     public enum MapVisibilityOptionsEnum { SHOWFLAGS, SHOWTRACKS, SHOWNAMES, SHOWSPEEDS, SHOWFORECASTS }
-    public enum ShipColourLogic { SHIPTYPE, FLAGSTATE, SIZE }
+    public enum ShipColourLogic { SHIPTYPESGROUPED, SHIPTYPE, FLAGSTATE, SIZE }
+    public enum AssetSearchOptions { SWEDISHASSETS, VMSASSETS, FLAGSTATE }
 
 }

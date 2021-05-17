@@ -1,13 +1,11 @@
 package Tests.SettingsTests;
 
 import PageActions.Navigate;
-import PageActions.Settings;
+import PageActions.SettingsActions;
 import PageObjects.AssetsPage;
 import PageObjects.SettingsPage;
 import Utilities.Constants;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -24,65 +22,65 @@ public class SettingsPageTest extends SettingsTest {
     @Test
     public void resetToDefaultsAndThenVerifySettingSaved() {
         Navigate navigate = new Navigate(driver);
-        Settings settings = new Settings();
+        SettingsActions settingsActions = new SettingsActions();
         SettingsPage settingsPage = (SettingsPage) testPage;
 
-        settings.resetToDefault(settingsPage.settingsSubmitBar);
-        settings.submit(settingsPage.settingsSubmitBar);
+        settingsActions.resetToDefault(settingsPage.settingsSubmitBar);
+        settingsActions.submit(settingsPage.settingsSubmitBar);
 
         AssetsPage assetPage = (AssetsPage) navigate.navigateTo(settingsPage, Constants.MenuItem.ASSETS);
         settingsPage = (SettingsPage) navigate.navigateTo(assetPage, Constants.MenuItem.MYSETTINGS);
 
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFLAGS), is(equalTo(false)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWTRACKS), is(equalTo(true)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWNAMES), is(equalTo(false)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWSPEEDS), is(equalTo(false)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFORECASTS), is(equalTo(true)));
-        assertThat(settings.getZoomLevel(settingsPage.mapStartPositionOptions), is(equalTo("10")));
-        assertThat(settings.getLatitude(settingsPage.mapStartPositionOptions), is(equalTo("57.6806116")));
-        assertThat(settings.getLongitude(settingsPage.mapStartPositionOptions), is(equalTo("12.1047925")));
-        assertThat(settings.getTrackLength(settingsPage.tracksAndForecastsOptions), is(equalTo("6 hours")));
-        assertThat(settings.getForecastInterval(settingsPage.tracksAndForecastsOptions), is(equalTo("30")));
-        assertThat(settings.getSelectedShipColourLogic(settingsPage.shipOptions), is(equalTo(SHIPTYPE)));
-        assertThat(settings.getUnitOfDistance(settingsPage.shipOptions), is(equalTo("Metric")));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFLAGS), is(equalTo(false)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWTRACKS), is(equalTo(true)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWNAMES), is(equalTo(false)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWSPEEDS), is(equalTo(false)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFORECASTS), is(equalTo(true)));
+        assertThat(settingsActions.getZoomLevel(settingsPage.mapStartPositionOptions), is(equalTo("10")));
+        assertThat(settingsActions.getLatitude(settingsPage.mapStartPositionOptions), is(equalTo("57.6806116")));
+        assertThat(settingsActions.getLongitude(settingsPage.mapStartPositionOptions), is(equalTo("12.1047925")));
+        assertThat(settingsActions.getTrackLength(settingsPage.tracksAndForecastsOptions), is(equalTo("6 hours")));
+        assertThat(settingsActions.getForecastInterval(settingsPage.tracksAndForecastsOptions), is(equalTo("30")));
+        assertThat(settingsActions.getSelectedShipColourLogic(settingsPage.shipOptions), is(equalTo(SHIPTYPE)));
+        assertThat(settingsActions.getUnitOfDistance(settingsPage.shipOptions), is(equalTo("Metric")));
     }
 
     @Test
     public void resetToDefaultsWithoutSavingAndThenVerifySettingKept() {
         Navigate navigate = new Navigate(driver);
-        Settings settings = new Settings();
+        SettingsActions settingsActions = new SettingsActions();
         SettingsPage settingsPage = (SettingsPage) testPage;
 
-        boolean oldShowFlags = settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFLAGS);
-        boolean oldShowTracks = settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWTRACKS);
-        boolean oldShowNames = settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWNAMES);
-        boolean oldShowSpeeds = settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWSPEEDS);
-        boolean oldShowForecasts = settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFORECASTS);
-        String oldZoomLevel = settings.getZoomLevel(settingsPage.mapStartPositionOptions);
-        String oldLatitude = settings.getLatitude(settingsPage.mapStartPositionOptions);
-        String oldLongitude = settings.getLongitude(settingsPage.mapStartPositionOptions);
-        String oldTrackLength = settings.getTrackLength(settingsPage.tracksAndForecastsOptions);
-        String oldForecastInterval = settings.getForecastInterval(settingsPage.tracksAndForecastsOptions);
-        ShipColourLogic oldShipColourLogic = settings.getSelectedShipColourLogic(settingsPage.shipOptions);
-        String oldUnitOfDistance = settings.getUnitOfDistance(settingsPage.shipOptions);
+        boolean oldShowFlags = settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFLAGS);
+        boolean oldShowTracks = settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWTRACKS);
+        boolean oldShowNames = settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWNAMES);
+        boolean oldShowSpeeds = settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWSPEEDS);
+        boolean oldShowForecasts = settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFORECASTS);
+        String oldZoomLevel = settingsActions.getZoomLevel(settingsPage.mapStartPositionOptions);
+        String oldLatitude = settingsActions.getLatitude(settingsPage.mapStartPositionOptions);
+        String oldLongitude = settingsActions.getLongitude(settingsPage.mapStartPositionOptions);
+        String oldTrackLength = settingsActions.getTrackLength(settingsPage.tracksAndForecastsOptions);
+        String oldForecastInterval = settingsActions.getForecastInterval(settingsPage.tracksAndForecastsOptions);
+        ShipColourLogic oldShipColourLogic = settingsActions.getSelectedShipColourLogic(settingsPage.shipOptions);
+        String oldUnitOfDistance = settingsActions.getUnitOfDistance(settingsPage.shipOptions);
 
-        settings.resetToDefault(settingsPage.settingsSubmitBar);
+        settingsActions.resetToDefault(settingsPage.settingsSubmitBar);
 
         AssetsPage assetPage = (AssetsPage) navigate.navigateTo(settingsPage, Constants.MenuItem.ASSETS);
         settingsPage = (SettingsPage) navigate.navigateTo(assetPage, Constants.MenuItem.MYSETTINGS);
 
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFLAGS), is(equalTo(oldShowFlags)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWTRACKS), is(equalTo(oldShowTracks)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWNAMES), is(equalTo(oldShowNames)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWSPEEDS), is(equalTo(oldShowSpeeds)));
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFORECASTS), is(equalTo(oldShowForecasts)));
-        assertThat(settings.getZoomLevel(settingsPage.mapStartPositionOptions), is(equalTo(oldZoomLevel)));
-        assertThat(settings.getLatitude(settingsPage.mapStartPositionOptions), is(equalTo(oldLatitude)));
-        assertThat(settings.getLongitude(settingsPage.mapStartPositionOptions), is(equalTo(oldLongitude)));
-        assertThat(settings.getTrackLength(settingsPage.tracksAndForecastsOptions), is(equalTo(oldTrackLength)));
-        assertThat(settings.getForecastInterval(settingsPage.tracksAndForecastsOptions), is(equalTo(oldForecastInterval)));
-        assertThat(settings.getSelectedShipColourLogic(settingsPage.shipOptions), is(equalTo(oldShipColourLogic)));
-        assertThat(settings.getUnitOfDistance(settingsPage.shipOptions), is(equalTo(oldUnitOfDistance)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFLAGS), is(equalTo(oldShowFlags)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWTRACKS), is(equalTo(oldShowTracks)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWNAMES), is(equalTo(oldShowNames)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWSPEEDS), is(equalTo(oldShowSpeeds)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, SHOWFORECASTS), is(equalTo(oldShowForecasts)));
+        assertThat(settingsActions.getZoomLevel(settingsPage.mapStartPositionOptions), is(equalTo(oldZoomLevel)));
+        assertThat(settingsActions.getLatitude(settingsPage.mapStartPositionOptions), is(equalTo(oldLatitude)));
+        assertThat(settingsActions.getLongitude(settingsPage.mapStartPositionOptions), is(equalTo(oldLongitude)));
+        assertThat(settingsActions.getTrackLength(settingsPage.tracksAndForecastsOptions), is(equalTo(oldTrackLength)));
+        assertThat(settingsActions.getForecastInterval(settingsPage.tracksAndForecastsOptions), is(equalTo(oldForecastInterval)));
+        assertThat(settingsActions.getSelectedShipColourLogic(settingsPage.shipOptions), is(equalTo(oldShipColourLogic)));
+        assertThat(settingsActions.getUnitOfDistance(settingsPage.shipOptions), is(equalTo(oldUnitOfDistance)));
     }
 }
 

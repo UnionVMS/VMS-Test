@@ -1,7 +1,7 @@
 package Tests.SettingsTests;
 
 import PageActions.Navigate;
-import PageActions.Settings;
+import PageActions.SettingsActions;
 import PageObjects.AssetsPage;
 import PageObjects.SettingsPage;
 import Utilities.Constants;
@@ -22,32 +22,32 @@ public class ShipOptionsTest extends SettingsTest {
     @EnumSource(ShipColourLogic.class)
     public void setShipColourLogicAndThenVerifySettingSaved(ShipColourLogic shipColourLogic) {
         Navigate navigate = new Navigate(driver);
-        Settings settings = new Settings();
+        SettingsActions settingsActions = new SettingsActions();
         SettingsPage settingsPage = (SettingsPage) testPage;
 
-        settings.setShipColourLogic(settingsPage.shipOptions, shipColourLogic);
-        settings.submit(settingsPage.settingsSubmitBar);
+        settingsActions.setShipColourLogic(settingsPage.shipOptions, shipColourLogic);
+        settingsActions.submit(settingsPage.settingsSubmitBar);
 
         AssetsPage assetPage = (AssetsPage) navigate.navigateTo(settingsPage, Constants.MenuItem.ASSETS);
         settingsPage = (SettingsPage) navigate.navigateTo(assetPage, Constants.MenuItem.MYSETTINGS);
 
-        assertThat(settings.getSelectedShipColourLogic(settingsPage.shipOptions), is(equalTo(shipColourLogic)));
+        assertThat(settingsActions.getSelectedShipColourLogic(settingsPage.shipOptions), is(equalTo(shipColourLogic)));
     }
     @ParameterizedTest
 
     @ValueSource(strings = { "Metric", "Nautical mile"})
     public void setUnitOfDistanceAndThenVerifySettingSaved(String unitOfDistance) {
         Navigate navigate = new Navigate(driver);
-        Settings settings = new Settings();
+        SettingsActions settingsActions = new SettingsActions();
         SettingsPage settingsPage = (SettingsPage) testPage;
 
-        settings.setUnitOfDistance(settingsPage.shipOptions, unitOfDistance);
-        settings.submit(settingsPage.settingsSubmitBar);
+        settingsActions.setUnitOfDistance(settingsPage.shipOptions, unitOfDistance);
+        settingsActions.submit(settingsPage.settingsSubmitBar);
 
         AssetsPage assetPage = (AssetsPage) navigate.navigateTo(settingsPage, Constants.MenuItem.ASSETS);
         settingsPage = (SettingsPage) navigate.navigateTo(assetPage, Constants.MenuItem.MYSETTINGS);
 
-        assertThat(settings.getUnitOfDistance(settingsPage.shipOptions), is(equalTo(unitOfDistance)));
+        assertThat(settingsActions.getUnitOfDistance(settingsPage.shipOptions), is(equalTo(unitOfDistance)));
     }
 }
 

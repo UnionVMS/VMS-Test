@@ -2,7 +2,7 @@
   <library name="org.postgresql:postgresql:LATEST" type="repository">
     <properties maven-id="org.postgresql:postgresql:LATEST" />
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/postgresql-42.2.18.jre7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/postgresql-42.2.20.jre7.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

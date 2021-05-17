@@ -1,7 +1,7 @@
 package Tests.SettingsTests;
 
 import PageActions.Navigate;
-import PageActions.Settings;
+import PageActions.SettingsActions;
 import PageObjects.AssetsPage;
 import PageObjects.SettingsPage;
 import Utilities.Constants;
@@ -23,19 +23,19 @@ public class MapVisibilityOptionsTest extends SettingsTest {
     @EnumSource(MapVisibilityOptionsEnum.class)
     public void setMapVisibilityOptionAndThenVerifySettingSaved(MapVisibilityOptionsEnum checkbox) {
         Navigate navigate = new Navigate(driver);
-        Settings settings = new Settings();
+        SettingsActions settingsActions = new SettingsActions();
         SettingsPage settingsPage = (SettingsPage) testPage;
 
 
         Map<MapVisibilityOptionsEnum, Boolean> visibilitySettings = new HashMap<>();
         visibilitySettings.put(checkbox, Boolean.TRUE);
-        settings.setVisibility(settingsPage.mapVisibilityOptions, visibilitySettings);
-        settings.submit(settingsPage.settingsSubmitBar);
+        settingsActions.setVisibility(settingsPage.mapVisibilityOptions, visibilitySettings);
+        settingsActions.submit(settingsPage.settingsSubmitBar);
 
         AssetsPage assetPage = (AssetsPage) navigate.navigateTo(settingsPage, Constants.MenuItem.ASSETS);
         settingsPage = (SettingsPage) navigate.navigateTo(assetPage, Constants.MenuItem.MYSETTINGS);
 
-        assertThat(settings.getMapVisibilityState(settingsPage.mapVisibilityOptions, checkbox), is(equalTo(true)));
+        assertThat(settingsActions.getMapVisibilityState(settingsPage.mapVisibilityOptions, checkbox), is(equalTo(true)));
     }
 }
 

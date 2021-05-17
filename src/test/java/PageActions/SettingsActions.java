@@ -11,9 +11,9 @@ import java.util.Map;
 
 import static Utilities.Constants.ShipColourLogic.*;
 
-public class Settings {
+public class SettingsActions {
 
-    public Settings() {
+    public SettingsActions() {
     }
 
     public void submit(SettingsSubmitBar settingsSubmitBar) {
@@ -148,6 +148,10 @@ public class Settings {
                 shipOptions.shipTypeOption.click();
                 break;
             }
+            case SHIPTYPESGROUPED: {
+                shipOptions.shipTypesGroupedOption.click();
+                break;
+            }
             case FLAGSTATE: {
                 shipOptions.flagStateOption.click();
                 break;
@@ -170,6 +174,10 @@ public class Settings {
                 shipOptions.shipTypeOption.click();
                 break;
             }
+            case SHIPTYPESGROUPED: {
+                shipOptions.shipTypesGroupedOption.click();
+                break;
+            }
             case FLAGSTATE: {
                 shipOptions.flagStateOption.click();
                 break;
@@ -188,6 +196,8 @@ public class Settings {
     public ShipColourLogic getSelectedShipColourLogic(ShipOptions shipOptions) {
         if (shipOptions.shipTypeOption.isSelected()) {
             return SHIPTYPE;
+        } else if (shipOptions.shipTypesGroupedOption.isSelected()) {
+            return SHIPTYPESGROUPED;
         } else if (shipOptions.flagStateOption.isSelected()) {
             return FLAGSTATE;
         } else if (shipOptions.sizeOption.isSelected()) {

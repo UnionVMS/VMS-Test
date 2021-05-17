@@ -1,7 +1,7 @@
 package Tests.SettingsTests;
 
 import PageActions.Navigate;
-import PageActions.Settings;
+import PageActions.SettingsActions;
 import PageObjects.RealTimeMapPage;
 import PageObjects.SettingsPage;
 import Tests.TestBase;
@@ -19,12 +19,12 @@ abstract class SettingsTest extends TestBase {
 
         testPage =  navigate.navigateTo((RealTimeMapPage)testPage, Constants.MenuItem.MYSETTINGS);
         SettingsPage currentPage = (SettingsPage) testPage;
-        Settings settings = new Settings();
-        settings.resetMapVisibilityOptions(currentPage.mapVisibilityOptions);
-        settings.resetMapStartPositionOptions(currentPage.mapStartPositionOptions);
-        settings.resetTracksAndForecastsOptions(currentPage.tracksAndForecastsOptions);
-        settings.resetShipOptions(currentPage.shipOptions);
-        settings.submit(currentPage.settingsSubmitBar);
+        SettingsActions settingsActions = new SettingsActions();
+        settingsActions.resetMapVisibilityOptions(currentPage.mapVisibilityOptions);
+        settingsActions.resetMapStartPositionOptions(currentPage.mapStartPositionOptions);
+        settingsActions.resetTracksAndForecastsOptions(currentPage.tracksAndForecastsOptions);
+        settingsActions.resetShipOptions(currentPage.shipOptions);
+        settingsActions.submit(currentPage.settingsSubmitBar);
     }
 
     @AfterEach

@@ -3,17 +3,20 @@ package PageObjects.PageElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ListRow {
+public class ResultListRow {
     private By elementLocator;
     private WebDriver driver;
 
-    public ListRow(WebDriver driver, By elementLocator) {
+    public ResultListRow(WebDriver driver, By elementLocator) {
         this.elementLocator = elementLocator;
         this.driver = driver;
     }
 
 
-    public String getText(String header) {
+    public String getText(int columnIndex) {
+
+       // todo fix just to get a specific column
+
         return driver.findElement(elementLocator).getText();
     }
 }
