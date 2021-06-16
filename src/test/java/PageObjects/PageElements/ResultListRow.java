@@ -12,9 +12,11 @@ public class ResultListRow {
         this.driver = driver;
     }
 
+    public void click() {
+        driver.findElement(elementLocator).click();
+    }
 
-    public String getText(int columnIndex) {
-
+        public String getText(int columnIndex) {
        // todo fix just to get a specific column
 
         return driver.findElement(elementLocator).getText();

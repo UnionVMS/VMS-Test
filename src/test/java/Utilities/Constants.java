@@ -21,6 +21,7 @@ public class Constants {
     public static String APIURLPrefix = "http://";
     public static String APIURLPort = ":28080";
     public static String APIURLBase = "/unionvms";
+    public static String chromepath = "C:\\Work\\Resources\\ChromeDriver\\v91.0.4472.19\\chromedriver.exe";
 
     public static String createAssetURL = APIURLPrefix + devServer + APIURLPort + APIURLBase + "/asset/rest/asset";
     public static InvocationType createAssetInvocationType = InvocationType.POST;
@@ -29,6 +30,7 @@ public class Constants {
 
     public enum InvocationType { GET, PUT, DELETE, POST }
     public enum MenuItem { ASSETS, MYSETTINGS, REALTIMEMAP, REPORTSMAP }
+    public enum AssetsMenuItem { ASSETINFO, MOBILETERMINAL, CONTACTS, NOTES, LASTPOSITIONS }
     public enum MapVisibilityOptionsEnum { SHOWFLAGS, SHOWTRACKS, SHOWNAMES, SHOWSPEEDS, SHOWFORECASTS }
     public enum ShipColourLogic { SHIPTYPESGROUPED, SHIPTYPE, FLAGSTATE, SIZE }
     public enum AssetSearchOptions { SWEDISHASSETS, VMSASSETS, FLAGSTATE }

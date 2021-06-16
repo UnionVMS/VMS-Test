@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class AssetDetailsNavigation extends ComponentBase {
 
-    public RouterLink assetInfo = new RouterLink(driver, By.cssSelector("ul.navbar-nav:nth-child(2) > li:nth-child(1) > a:nth-child(1)"));
-    public RouterLink mobileTerminal = new RouterLink(driver, By.cssSelector("li.nav-item:nth-child(2) > a:nth-child(1)"));
-    public RouterLink contact = new RouterLink(driver, By.cssSelector("li.nav-item:nth-child(3) > a:nth-child(1)"));
-    public RouterLink notes = new RouterLink(driver, By.cssSelector("li.nav-item:nth-child(4) > a:nth-child(1)"));
-    public RouterLink lastPositions = new RouterLink(driver, By.cssSelector("li.nav-item:nth-child(4) > a:nth-child(1)"));
+    public RouterLink assetInfo = new RouterLink(driver, By.cssSelector("body > app-root > core-asset-layout-component > div > div.side-menu > ul > li:nth-child(6) > span.text"));
+    public RouterLink mobileTerminal = new RouterLink(driver, By.cssSelector("body > app-root > core-asset-layout-component > div > div.side-menu > ul > li:nth-child(7) > span.text"));
+    public RouterLink contact = new RouterLink(driver, By.cssSelector("body > app-root > core-asset-layout-component > div > div.side-menu > ul > li:nth-child(8) > span.text"));
+    public RouterLink notes = new RouterLink(driver, By.cssSelector("body > app-root > core-asset-layout-component > div > div.side-menu > ul > li:nth-child(9) > span.text"));
+    public RouterLink lastPositions = new RouterLink(driver, By.cssSelector("body > app-root > core-asset-layout-component > div > div.side-menu > ul > li:nth-child(10) > span.text"));
 
     public AssetDetailsNavigation(WebDriver driver) {
         super(driver);

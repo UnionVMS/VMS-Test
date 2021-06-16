@@ -7,11 +7,11 @@ import org.openqa.selenium.WebDriver;
 
 public class AssetMetrics extends ComponentBase {
 
-    public TextBox lengthOverAll = new TextBox(driver, By.xpath("/html/body/app-root/core-default-layout-component/div/settings-user-settings/form/fieldset[1]/fieldset[1]/mat-form-field/div/div[1]/div/input"), "1");
-    public TextBox lengthBetweenPerp = new TextBox(driver, By.xpath("/html/body/app-root/core-default-layout-component/div/settings-user-settings/form/fieldset[1]/fieldset[1]/div/mat-form-field[1]/div/div[1]/div/input"), "56.114376");
-    public TextBox tonnage = new TextBox(driver, By.xpath("/html/body/app-root/core-default-layout-component/div/settings-user-settings/form/fieldset[1]/fieldset[1]/div/mat-form-field[2]/div/div[1]/div/input"), "15.655957");
-    public SelectElement port = new SelectElement(driver, By.xpath("/html/body/app-root/core-default-layout-component/div/settings-user-settings/form/fieldset[1]/fieldset[1]/div/mat-form-field[1]/div/div[1]/div/input"), "56.114376");
-    public TextBox mainPower = new TextBox(driver, By.xpath("/html/body/app-root/core-default-layout-component/div/settings-user-settings/form/fieldset[1]/fieldset[1]/div/mat-form-field[2]/div/div[1]/div/input"), "15.655957");
+    public TextBox lengthOverAll = new TextBox(driver, By.cssSelector("input[formcontrolname='lengthOverAll']"), "14");
+    public TextBox lengthBetweenPerp = new TextBox(driver, By.cssSelector("input[formcontrolname='lengthBetweenPerpendiculars']"), "20");
+    public TextBox tonnage = new TextBox(driver, By.cssSelector("input[formcontrolname='grossTonnage']"), "99");
+    public SelectElement unit = new SelectElement(driver, By.cssSelector("mat-select[formcontrolname='grossTonnageUnit']"), "London");
+    public TextBox mainPower = new TextBox(driver, By.cssSelector("input[formcontrolname='powerOfMainEngine']"), "99");
 
     public AssetMetrics(WebDriver driver) {
         super(driver);

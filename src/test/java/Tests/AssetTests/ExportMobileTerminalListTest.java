@@ -9,10 +9,7 @@ import PageActions.Login;
 import PageActions.Navigate;
 import PageActions.Search;
 import PageActions.SettingsActions;
-import PageObjects.AssetsPage;
-import PageObjects.HomePage;
-import PageObjects.RealTimeMapPage;
-import PageObjects.SettingsPage;
+import PageObjects.*;
 import PageResults.SettingsResult;
 import PageResults.SystemInfo;
 import Utilities.Constants;
@@ -46,7 +43,7 @@ public class ExportMobileTerminalListTest extends AssetTest {
         ContactData contactData = ContactData.get(dataFile + "_Contact");
         AssetService.CreateContact(createdAssetID, contactData.toString());
 
-        AssetsPage assetsPage = (AssetsPage) testPage;
+        AssetsSearchPage assetsSearchPage = (AssetsSearchPage) testPage;
 
         Search search = new Search();
         Navigate navigate = new Navigate(driver);
@@ -68,7 +65,7 @@ public class ExportMobileTerminalListTest extends AssetTest {
         searchArgs.put("ircs", "AbelIRCS");
 */
 
-        search.searchAssets(assetsPage.assetSearch, countries, "tall", "countries");
+        search.searchAssets(assetsSearchPage.assetSearch, countries, "tall", "countries");
 
         String sysVersion = systemInfo.getSystemVersion((AssetsPage) testPage);
         System.out.println(sysVersion);

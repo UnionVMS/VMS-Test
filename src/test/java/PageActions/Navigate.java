@@ -18,7 +18,7 @@ public class Navigate {
         switch(menuItem) {
             case ASSETS: {
                 currentPage.getNavigationBar().assets.click();
-                return new AssetsPage(driver);
+                return new AssetsSearchPage(driver);
             }
             case REALTIMEMAP: {
                 currentPage.getNavigationBar().realtimeMap.click();

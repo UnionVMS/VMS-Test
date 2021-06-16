@@ -1,5 +1,6 @@
 package PageObjects.PageElements;
 
+import PageObjects.AssetsInfoPage;
 import PageObjects.PageElements.ResultListHeader;
 import PageObjects.PageElements.ResultListRow;
 import org.openqa.selenium.By;
@@ -45,6 +46,12 @@ public class ResultList {
 //        ResultListCell currentCell = new ResultListCell(driver, By.xpath(addRows + "[" + rowNumber + "]/td[" + columnNumber + "]"));
         ResultListCell currentCell = new ResultListCell(driver, By.xpath(addRows + "[" + (rowNumber+1) + "]/td[" + (columnNumber+1) + "]"));
         return currentCell.getText();
+    }
+    public void clickRow(int rowNumber) {
+//        ResultListCell currentCell = new ResultListCell(driver, By.xpath(addRows + "[" + rowNumber + "]/td[" + columnNumber + "]"));
+//        ResultListCell currentCell = new ResultListCell(driver, By.xpath(addRows + "[" + (rowNumber+1) + "]/td[" + (columnNumber+1) + "]"));
+        //driver.findElement(By.xpath(addRows + "[" + (rowNumber+1) + "]").click();
+        this.getRow(rowNumber).click();
     }
 
 
